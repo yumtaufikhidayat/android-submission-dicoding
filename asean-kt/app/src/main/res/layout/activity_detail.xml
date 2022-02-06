@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context=".ui.activity.DetailActivity">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_gradient_profile"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgCountryFlag"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="36dp"
+            android:scaleType="centerCrop"
+            android:elevation="10dp"
+            tools:src="@tools:sample/avatars"
+            app:civ_border_width="1dp"
+            app:civ_border_color="@color/purple_500"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="16dp"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="20dp"
+            android:elevation="8dp"
+            android:background="@drawable/bg_profile"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvCountryName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:text="@tools:sample/full_names"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCountryIntlName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@tools:sample/cities"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@id/tvCountryName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvCountryDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="16dp"
+                tools:text="@tools:sample/lorem/random"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvCountryIntlName"/>
+
+            <TextView
+                android:id="@+id/tvSummary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="@string/textSummary"
+                app:layout_constraintTop_toBottomOf="@id/tvCountryDesc"
+                app:layout_constraintStart_toStartOf="@id/tvCountryDesc"/>
+
+            <ImageView
+                android:id="@+id/imgCountryCapital"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_outline_office"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_purple"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/tvSummary"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryCapital"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintStart_toEndOf="@id/imgCountryCapital"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryCapital"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryCapital"/>
+
+            <ImageView
+                android:id="@+id/imgCountryHeadGov"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_outline_head_country"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_red"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/imgCountryCapital"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryHeadGov"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintStart_toEndOf="@id/imgCountryHeadGov"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryHeadGov"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryHeadGov"/>
+
+            <ImageView
+                android:id="@+id/imgCountryIndependenceDay"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_outline_calendar"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_blue"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/imgCountryHeadGov"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryIndependenceDay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintStart_toEndOf="@id/imgCountryIndependenceDay"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryIndependenceDay"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryIndependenceDay"/>
+
+            <ImageView
+                android:id="@+id/imgCountryLanguage"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_outline_language"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_orange"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/imgCountryIndependenceDay"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryLanguage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintStart_toEndOf="@id/imgCountryLanguage"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryLanguage"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryLanguage"/>
+
+            <ImageView
+                android:id="@+id/imgCountryCurrency"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_outline_currency"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_green"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/imgCountryLanguage"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryCurrency"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/imgCountryCurrency"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryCurrency"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryCurrency"/>
+
+            <ImageView
+                android:id="@+id/imgCountryArea"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_outline_area"
+                android:padding="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_round_yellow"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintTop_toBottomOf="@id/imgCountryCurrency"
+                app:layout_constraintStart_toStartOf="@+id/tvSummary"/>
+
+            <TextView
+                android:id="@+id/tvCountryLandArea"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                tools:text="@tools:sample/cities"
+                android:textColor="@color/black"
+                android:maxLines="2"
+                app:layout_constraintStart_toEndOf="@id/imgCountryArea"
+                app:layout_constraintEnd_toEndOf="@id/tvCountryDesc"
+                app:layout_constraintTop_toTopOf="@id/imgCountryArea"
+                app:layout_constraintBottom_toBottomOf="@id/imgCountryArea"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

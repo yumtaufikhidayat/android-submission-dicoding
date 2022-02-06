@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Asean</string>
+    <string name="textProfileName">Taufik Hidayat</string>
+    <string name="textJobPosition">Android Developer</string>
+    <string name="textEmail">yumtaufikhidayat@gmail.com</string>
+    <string name="textOfficeName">PT KB Finansia Multi Finance</string>
+    <string name="textLinkedIn">https://linkedin.com/in/taufik-hidayat</string>
+    <string name="textGithub">https://github.com/yumtaufikhidayat</string>
+    <string name="textAppVersion">Versi </string>
+    <string name="textSummary">Ringkasan</string>
+    <string name="textOpenInBrowser">Buka di Peramban</string>
+</resources>
