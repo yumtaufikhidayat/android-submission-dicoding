@@ -1,0 +1,49 @@
+{
+  "result": [
+    {
+      "detailTvShowId": "62650m1",
+      "tvShowId": "62650",
+      "title": "Venom: Let There Be Carnage",
+      "imagePoster": "/lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg",
+      "year": "2021",
+      "rating": 7.2,
+      "position": "0"
+    },
+    {
+      "detailTvShowId": "62650m2",
+      "tvShowId": "62650",
+      "title": "Free Guy",
+      "imagePoster": "/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
+      "year": "2021",
+      "rating": 7.8,
+      "position": "1"
+    },
+    {
+      "detailTvShowId": "62650m3",
+      "tvShowId": "62650",
+      "title": "Solitary",
+      "imagePoster": "/ApwmbrMlsuOay5rXQA4Kbz7qJAl.jpg",
+      "year": "2021",
+      "rating": 6.6,
+      "position": "2"
+    },
+    {
+      "detailTvShowId": "62650m4",
+      "tvShowId": "62650",
+      "title": "A Man Called Ove",
+      "imagePoster": "/pXqnqw4V1Rly2HEacfl07d5DcUE.jpg",
+      "year": "2016",
+      "rating": 5.6,
+      "position": "3"
+    },
+    {
+      "detailTvShowId": "62650m5",
+      "tvShowId": "62650",
+      "title": "Lights Out",
+      "imagePoster": "/rxXA5vwJElXQ8BgrB0pocUcuqFA.jpg",
+      "year": "2016",
+      "rating": 6.1,
+      "position": "4"
+    }
+  ]
+}

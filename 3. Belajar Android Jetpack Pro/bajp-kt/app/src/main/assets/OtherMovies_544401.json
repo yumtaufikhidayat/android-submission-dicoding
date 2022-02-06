@@ -1,0 +1,49 @@
+{
+  "result": [
+    {
+      "detailMovieId": "544401m1",
+      "movieId": "544401",
+      "title": "Venom: Let There Be Carnage",
+      "imagePoster": "/lNyLSOKMMeUPr1RsL4KcRuIXwHt.jpg",
+      "year": "2021",
+      "rating": 7.2,
+      "position": "0"
+    },
+    {
+      "detailMovieId": "544401m2",
+      "movieId": "544401",
+      "title": "Free Guy",
+      "imagePoster": "/xmbU4JTUm8rsdtn7Y3Fcm30GpeT.jpg",
+      "year": "2021",
+      "rating": 7.8,
+      "position": "1"
+    },
+    {
+      "detailMovieId": "544401m3",
+      "movieId": "544401",
+      "title": "Solitary",
+      "imagePoster": "/ApwmbrMlsuOay5rXQA4Kbz7qJAl.jpg",
+      "year": "2021",
+      "rating": 6.6,
+      "position": "2"
+    },
+    {
+      "detailMovieId": "544401m4",
+      "movieId": "544401",
+      "title": "A Man Called Ove",
+      "imagePoster": "/pXqnqw4V1Rly2HEacfl07d5DcUE.jpg",
+      "year": "2016",
+      "rating": 5.57,
+      "position": "3"
+    },
+    {
+      "detailMovieId": "544401m5",
+      "movieId": "544401",
+      "title": "Lights Out",
+      "imagePoster": "/rxXA5vwJElXQ8BgrB0pocUcuqFA.jpg",
+      "year": "2016",
+      "rating": 6.1,
+      "position": "4"
+    }
+  ]
+}
