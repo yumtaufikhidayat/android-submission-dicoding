@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Gitser</string>
+    <string name="tvAppVersion">1.0</string>
 </resources>
