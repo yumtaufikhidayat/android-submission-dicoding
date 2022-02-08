@@ -1,4 +1,4 @@
-package com.taufik.gitser.activity.ui.activity
+package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.taufik.gitser.databinding.ActivitySplashscreenBinding
+import com.yumtaufikhidayat.gitser.databinding.ActivitySplashscreenBinding
 
 class SplashscreenActivity : AppCompatActivity() {
 

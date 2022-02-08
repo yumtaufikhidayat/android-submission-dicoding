@@ -1,4 +1,4 @@
-package com.taufik.gitser.activity.data
+package com.yumtaufikhidayat.gitser.data
 
 data class User(
     var profileImage: String = "",

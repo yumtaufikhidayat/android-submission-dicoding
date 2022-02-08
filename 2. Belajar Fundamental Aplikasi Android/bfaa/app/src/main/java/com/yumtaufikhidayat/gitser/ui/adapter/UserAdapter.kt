@@ -1,4 +1,4 @@
-package com.taufik.gitser.activity.ui.adapter
+package com.yumtaufikhidayat.gitser.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.taufik.gitser.activity.data.User
-import com.taufik.gitser.databinding.ItemListUserBinding
+import com.yumtaufikhidayat.gitser.data.User
+import com.yumtaufikhidayat.gitser.databinding.ItemListUserBinding
 
 class UserAdapter(private val listUser: ArrayList<User>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.ViewHolder {

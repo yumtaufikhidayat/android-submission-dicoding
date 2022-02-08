@@ -1,12 +1,13 @@
-package com.taufik.gitser.activity.ui.activity
+package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.taufik.gitser.activity.data.User
-import com.taufik.gitser.activity.data.UserData
-import com.taufik.gitser.activity.ui.adapter.UserAdapter
-import com.taufik.gitser.databinding.ActivityMainBinding
+import com.yumtaufikhidayat.gitser.data.User
+import com.yumtaufikhidayat.gitser.data.UserData
+import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
+import com.yumtaufikhidayat.gitser.ui.adapter.UserAdapter
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
