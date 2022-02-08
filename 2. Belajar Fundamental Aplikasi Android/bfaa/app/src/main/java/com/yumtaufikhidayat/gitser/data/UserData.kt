@@ -106,6 +106,19 @@ object UserData {
         "Code Climate"
     )
 
+    private val profileLink = arrayOf(
+        "https://github.com/mojombo",
+        "https://github.com/defunkt",
+        "https://github.com/pjhyett",
+        "https://github.com/wycats",
+        "https://github.com/ezmobius",
+        "https://github.com/ivey",
+        "https://github.com/evanphx",
+        "https://github.com/vanpelt",
+        "https://github.com/wayneeseguin",
+        "https://github.com/brynary"
+    )
+
     val listUserData: ArrayList<User>
         get() {
             val list = arrayListOf<User>()
@@ -119,6 +132,7 @@ object UserData {
                 user.repositories = repositories[position]
                 user.location = location[position]
                 user.office = office[position]
+                user.profileLink = profileLink[position]
                 list.add(user)
             }
 

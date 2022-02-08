@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.yumtaufikhidayat.gitser">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Gitser">
-        <activity android:name="com.yumtaufikhidayat.gitser.ui.activity.MainActivity" />
         <activity
-            android:name="com.yumtaufikhidayat.gitser.ui.activity.SplashscreenActivity"
+            android:name=".ui.activity.DetailActivity"
+            android:exported="false" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity
+            android:name=".ui.activity.SplashscreenActivity"
             android:exported="true"
             android:theme="@style/ActionBarTheme">
             <intent-filter>

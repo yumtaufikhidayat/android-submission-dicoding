@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Gitser</string>
     <string name="tvAppVersion">1.0</string>
+    <string name="tvFollowing">Mengikuti</string>
+    <string name="tvFollowers">Pengikut</string>
+    <string name="tvRepository">Repositori</string>
+    <string name="tvOpenInBrowser">Buka di Peramban</string>
 </resources>

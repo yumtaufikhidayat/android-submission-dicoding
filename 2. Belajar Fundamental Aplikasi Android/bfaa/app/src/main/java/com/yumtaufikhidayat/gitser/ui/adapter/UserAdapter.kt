@@ -1,13 +1,14 @@
 package com.yumtaufikhidayat.gitser.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.yumtaufikhidayat.gitser.data.User
 import com.yumtaufikhidayat.gitser.databinding.ItemListUserBinding
+import com.yumtaufikhidayat.gitser.ui.activity.DetailActivity
 
 class UserAdapter(private val listUser: ArrayList<User>): RecyclerView.Adapter<UserAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.ViewHolder {
@@ -41,7 +42,10 @@ class UserAdapter(private val listUser: ArrayList<User>): RecyclerView.Adapter<U
                 tvUserOffice.text = user.office
 
                 constraintItemUser.setOnClickListener {
-                    Toast.makeText(itemView.context, user.username, Toast.LENGTH_SHORT).show()
+                    it.context.startActivity(
+                        Intent(itemView.context, DetailActivity::class.java).apply {
+                            putExtra(DetailActivity.EXTRA_PARCELABLE, user)
+                    })
                 }
             }
         }
