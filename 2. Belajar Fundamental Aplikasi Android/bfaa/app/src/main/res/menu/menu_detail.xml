@@ -11,6 +11,11 @@
                 android:title="@string/tvOpenInBrowser"
                 android:icon="@drawable/ic_browser"
                 app:showAsAction="never"/>
+            <item
+                android:id="@+id/action_share"
+                android:title="@string/tvShare"
+                android:icon="@drawable/ic_share"
+                app:showAsAction="never"/>
         </menu>
 
     </item>

@@ -3,6 +3,7 @@ package com.yumtaufikhidayat.gitser.ui.activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -71,13 +72,25 @@ class DetailActivity : AppCompatActivity() {
         try {
             val link = user.profileLink
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
-            startActivity(Intent.createChooser(intent, "Open with:"))
+            startActivity(Intent.createChooser(intent, "Buka dengan"))
         } catch (e: Exception) {
             Toast.makeText(
                 this,
-                "Silakan install browser terlebih dahulu",
+                "Silakan install peramban terlebih dahulu",
                 Toast.LENGTH_SHORT
             ).show()
+        }
+    }
+
+    private fun shareUserProfile() {
+        try {
+            val body = "Kunjungi & bagikan profil pengguna ini \n${user.profileLink}"
+            val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, body)
+            startActivity(Intent.createChooser(shareIntent, "Bagikan dengan"))
+        } catch (e: Exception) {
+            Log.e("shareFailed", "onOptionsItemSelected: ${e.localizedMessage}")
         }
     }
 
@@ -90,6 +103,7 @@ class DetailActivity : AppCompatActivity() {
         when (item.itemId) {
             android.R.id.home -> onBackPressed()
             R.id.action_open_in_browser -> openInBrowser()
+            R.id.action_share -> shareUserProfile()
         }
         return super.onOptionsItemSelected(item)
     }
