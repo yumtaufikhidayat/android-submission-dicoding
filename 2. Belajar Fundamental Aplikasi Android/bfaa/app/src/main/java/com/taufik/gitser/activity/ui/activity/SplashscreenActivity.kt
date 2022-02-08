@@ -1,4 +1,4 @@
-package com.taufik.gitser.activity
+package com.taufik.gitser.activity.ui.activity
 
 import android.content.Intent
 import android.content.pm.PackageInfo
