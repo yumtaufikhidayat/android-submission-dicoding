@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var userAdapter: UserAdapter
+    private val delayMillis = 1000L
     private var listUsers: ArrayList<User> = arrayListOf()
     private var doubleBackToExitPressedOnce = false
 
@@ -50,6 +51,6 @@ class MainActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper())
             .postDelayed({
                 doubleBackToExitPressedOnce = false
-            }, 2000)
+            }, delayMillis)
     }
 }
