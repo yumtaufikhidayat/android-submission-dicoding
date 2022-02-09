@@ -18,10 +18,6 @@ import com.yumtaufikhidayat.gitser.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
-    companion object{
-        const val EXTRA_PARCELABLE = "com.yumtaufikhidayat.gitser.ui.activity.EXTRA_PARCELABLE"
-    }
-
     private lateinit var binding: ActivityDetailBinding
     private lateinit var user: User
 
@@ -106,5 +102,9 @@ class DetailActivity : AppCompatActivity() {
             R.id.action_share -> shareUserProfile()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    companion object{
+        const val EXTRA_PARCELABLE = "com.yumtaufikhidayat.gitser.ui.activity.EXTRA_PARCELABLE"
     }
 }
