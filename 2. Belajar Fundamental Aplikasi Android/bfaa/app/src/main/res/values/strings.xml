@@ -6,4 +6,5 @@
     <string name="tvRepository">Repositori</string>
     <string name="tvOpenInBrowser">Buka di Peramban</string>
     <string name="tvShare">Bagikan</string>
+    <string name="tvProfileImage">Foto profil pengguna</string>
 </resources>
