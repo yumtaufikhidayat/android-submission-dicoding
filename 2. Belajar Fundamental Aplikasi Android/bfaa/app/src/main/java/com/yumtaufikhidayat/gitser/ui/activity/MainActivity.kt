@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        this.doubleBackToExitPressedOnce = true
+        doubleBackToExitPressedOnce = true
         Toast.makeText(this, "Klik sekali lagi untuk keluar", Toast.LENGTH_SHORT).show()
 
         Handler(Looper.getMainLooper())
