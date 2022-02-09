@@ -21,6 +21,7 @@
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_marginEnd="16dp"
+            android:contentDescription="@string/tvProfileImage"
             tools:src="@tools:sample/avatars"
             app:civ_border_width="1dp"
             app:civ_border_color="@color/purple_500"

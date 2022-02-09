@@ -34,6 +34,7 @@
             android:layout_height="100dp"
             android:layout_marginTop="16dp"
             android:src="@color/purple_500"
+            android:contentDescription="@string/tvProfileImage"
             app:civ_border_width="2.5dp"
             app:civ_border_color="@color/purple_500"
             app:layout_constraintTop_toTopOf="parent"
