@@ -101,7 +101,7 @@
         <View
             android:id="@+id/viewDividerOne"
             android:layout_width="2dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@android:color/white"
             app:layout_constraintTop_toTopOf="@id/viewSecondLayer"
             app:layout_constraintBottom_toBottomOf="@id/viewSecondLayer"
@@ -135,7 +135,7 @@
         <View
             android:id="@+id/viewDividerTwo"
             android:layout_width="2dp"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:background="@android:color/white"
             app:layout_constraintTop_toTopOf="@id/viewDividerOne"
             app:layout_constraintBottom_toBottomOf="@id/viewDividerOne"
@@ -173,7 +173,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:src="@drawable/ic_location"
-            android:contentDescription="@null"
+            android:contentDescription="@string/tvLocation"
             android:layout_margin="12dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/viewSecondLayer"
@@ -199,7 +199,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:src="@drawable/ic_office"
-            android:contentDescription="@null"
+            android:contentDescription="@string/tvCompany"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imgLocation"/>
 
@@ -216,6 +216,30 @@
             app:layout_constraintEnd_toEndOf="@id/tvLocation"
             app:layout_constraintTop_toTopOf="@id/imgCompany"
             app:layout_constraintBottom_toBottomOf="@id/imgCompany"/>
+
+        <ImageView
+            android:id="@+id/imgLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_link"
+            android:contentDescription="@string/tvLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgCompany"/>
+
+        <TextView
+            android:id="@+id/tvLink"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLines="1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/black"
+            tools:text="@tools:sample/cities"
+            app:layout_constraintStart_toStartOf="@+id/tvCompany"
+            app:layout_constraintEnd_toEndOf="@id/tvLocation"
+            app:layout_constraintTop_toTopOf="@id/imgLink"
+            app:layout_constraintBottom_toBottomOf="@id/imgLink"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
