@@ -17,11 +17,11 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:background="@color/colorLayerBack"
-            app:layout_constraintTop_toTopOf="@id/constraintFirstLayer"
-            app:layout_constraintBottom_toBottomOf="@id/constraintFirstLayer"/>
+            app:layout_constraintTop_toTopOf="@id/viewFirstLayer"
+            app:layout_constraintBottom_toBottomOf="@id/viewFirstLayer"/>
 
         <View
-            android:id="@+id/constraintFirstLayer"
+            android:id="@+id/viewFirstLayer"
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:background="@drawable/first_layer"
@@ -64,112 +64,108 @@
             app:layout_constraintEnd_toEndOf="@id/tvName"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
 
-        <LinearLayout
-            android:id="@+id/llSecondLayer"
+        <View
+            android:id="@+id/viewSecondLayer"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:layout_height="60dp"
             android:background="@drawable/second_layer"
-            app:layout_constraintTop_toBottomOf="@id/llLayerBack">
+            app:layout_constraintTop_toBottomOf="@id/viewFirstLayer"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+        <TextView
+            android:id="@+id/tvFollowingNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            tools:text="@tools:sample/us_zipcodes"
+            app:layout_constraintTop_toTopOf="@id/viewSecondLayer"
+            app:layout_constraintBottom_toBottomOf="@id/viewSecondLayer"
+            app:layout_constraintStart_toStartOf="@id/viewSecondLayer"
+            app:layout_constraintEnd_toStartOf="@id/viewDividerOne"
+            app:layout_constraintVertical_bias=".25"/>
 
-                <TextView
-                    android:id="@+id/tvFollowingNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    tools:text="@tools:sample/us_zipcodes"/>
+        <TextView
+            android:id="@+id/tvFollowing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/white"
+            android:text="@string/tvFollowing"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowingNumber"
+            app:layout_constraintStart_toStartOf="@id/tvFollowingNumber"
+            app:layout_constraintEnd_toEndOf="@id/tvFollowingNumber"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@android:color/white"
-                    android:text="@string/tvFollowing"/>
+        <View
+            android:id="@+id/viewDividerOne"
+            android:layout_width="2dp"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="@id/viewSecondLayer"
+            app:layout_constraintBottom_toBottomOf="@id/viewSecondLayer"
+            app:layout_constraintStart_toEndOf="@id/tvFollowingNumber"
+            app:layout_constraintEnd_toStartOf="@id/tvFollowersNumber"/>
 
-            </LinearLayout>
+        <TextView
+            android:id="@+id/tvFollowersNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            tools:text="@tools:sample/us_zipcodes"
+            app:layout_constraintTop_toTopOf="@id/tvFollowingNumber"
+            app:layout_constraintStart_toEndOf="@id/viewDividerOne"
+            app:layout_constraintEnd_toStartOf="@id/viewDividerTwo"/>
 
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/white"
+            android:text="@string/tvFollowers"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollowersNumber"
+            app:layout_constraintStart_toStartOf="@id/tvFollowersNumber"
+            app:layout_constraintEnd_toEndOf="@id/tvFollowersNumber"/>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
+        <View
+            android:id="@+id/viewDividerTwo"
+            android:layout_width="2dp"
+            android:layout_height="50dp"
+            android:background="@android:color/white"
+            app:layout_constraintTop_toTopOf="@id/viewDividerOne"
+            app:layout_constraintBottom_toBottomOf="@id/viewDividerOne"
+            app:layout_constraintStart_toEndOf="@id/tvFollowersNumber"
+            app:layout_constraintEnd_toStartOf="@id/tvRepositoryNumber"/>
 
-                <TextView
-                    android:id="@+id/tvFollowersNumber"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    tools:text="@tools:sample/us_zipcodes"/>
+        <TextView
+            android:id="@+id/tvRepositoryNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            tools:text="@tools:sample/us_zipcodes"
+            app:layout_constraintTop_toTopOf="@id/tvFollowingNumber"
+            app:layout_constraintStart_toEndOf="@id/viewDividerTwo"
+            app:layout_constraintEnd_toEndOf="@id/viewSecondLayer"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@android:color/white"
-                    android:text="@string/tvFollowers"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="@android:color/white"
+            android:text="@string/tvRepository"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepositoryNumber"
+            app:layout_constraintStart_toStartOf="@id/tvRepositoryNumber"
 
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:background="@android:color/white"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/tvRepositoryFollowers"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
-                    tools:text="@tools:sample/us_zipcodes"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textColor="@android:color/white"
-                    android:text="@string/tvRepository"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
+            app:layout_constraintEnd_toEndOf="@id/tvRepositoryNumber"/>
 
         <ImageView
             android:id="@+id/imgLocation"
@@ -180,20 +176,21 @@
             android:contentDescription="@null"
             android:layout_margin="12dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/llSecondLayer"
+            app:layout_constraintTop_toBottomOf="@id/viewSecondLayer"
             app:layout_constraintBottom_toTopOf="@id/imgCompany"/>
 
         <TextView
             android:id="@+id/tvLocation"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginHorizontal="10dp"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/cities"
             app:layout_constraintStart_toEndOf="@id/imgLocation"
             app:layout_constraintTop_toTopOf="@+id/imgLocation"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/imgLocation"/>
 
         <ImageView
@@ -208,15 +205,15 @@
 
         <TextView
             android:id="@+id/tvCompany"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginStart="10dp"
             android:maxLines="1"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/cities"
-            app:layout_constraintStart_toEndOf="@id/imgCompany"
+            app:layout_constraintStart_toStartOf="@+id/tvLocation"
+            app:layout_constraintEnd_toEndOf="@id/tvLocation"
             app:layout_constraintTop_toTopOf="@id/imgCompany"
             app:layout_constraintBottom_toBottomOf="@id/imgCompany"/>
 
