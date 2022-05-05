@@ -5,11 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ui.activity.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp">
 
         <View
             android:id="@+id/llLayerBack"
@@ -240,6 +241,22 @@
             app:layout_constraintEnd_toEndOf="@id/tvLocation"
             app:layout_constraintTop_toTopOf="@id/imgLink"
             app:layout_constraintBottom_toBottomOf="@id/imgLink"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:tabGravity="fill"
+            app:tabInlineLabel="true"
+            app:tabIndicatorColor="@color/purple_500"
+            app:tabIndicatorHeight="2dp"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabSelectedTextColor="@color/purple_500"
+            app:tabIconTint="@color/purple_700"
+            app:layout_constraintTop_toBottomOf="@id/imgLink"/>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
