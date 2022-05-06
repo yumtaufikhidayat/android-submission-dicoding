@@ -10,4 +10,5 @@
     <string name="tvLocation">Lokasi</string>
     <string name="tvCompany">Perusahaan</string>
     <string name="tvLink">Link</string>
+    <string name="tvDetailUser">Detail pengguna</string>
 </resources>
