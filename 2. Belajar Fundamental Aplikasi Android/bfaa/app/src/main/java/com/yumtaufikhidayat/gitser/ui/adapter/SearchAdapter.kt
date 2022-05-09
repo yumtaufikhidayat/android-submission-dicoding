@@ -1,13 +1,14 @@
 package com.yumtaufikhidayat.gitser.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.databinding.ItemListUserBinding
+import com.yumtaufikhidayat.gitser.ui.activity.DetailActivity
 import com.yumtaufikhidayat.gitser.utils.Utils.loadImage
 
 class SearchAdapter: ListAdapter<Search, SearchAdapter.SearchViewHolder>(SearchDiffCallback) {
@@ -35,7 +36,10 @@ class SearchAdapter: ListAdapter<Search, SearchAdapter.SearchViewHolder>(SearchD
             tvProfileType.text = item.type
 
             constraintItemUser.setOnClickListener {
-                Toast.makeText(itemView.context, item.login, Toast.LENGTH_SHORT).show()
+                val intent = Intent(itemView.context, DetailActivity::class.java).apply {
+                    putExtra(DetailActivity.EXTRA_PARCELABLE, item)
+                }
+                it.context.startActivity(intent)
             }
         }
     }
