@@ -102,6 +102,10 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun setPagerData() = with(binding) {
+
+    }
+
     private fun openInBrowser() {
         try {
             val link = data.htmlUrl
