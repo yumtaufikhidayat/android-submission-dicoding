@@ -11,7 +11,9 @@
         <entry key="app/src/main/res/drawable/ic_link.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_office.xml" value="0.1125" />
+        <entry key="app/src/main/res/drawable/ic_outline_language.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_outline_no_accounts.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_outline_repository.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_share.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/second_layer.xml" value="0.1125" />
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />
@@ -20,8 +22,10 @@
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_follows.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_repository.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_list_repository.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_list_user.xml" value="0.15294117647058825" />
         <entry key="app/src/main/res/layout/layout_no_data.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_no_repository.xml" value="0.1" />
         <entry key="app/src/main/res/layout/shimmer_detail.xml" value="0.16778479515359462" />
         <entry key="app/src/main/res/layout/shimmer_item_user.xml" value="0.15021732875279012" />
         <entry key="app/src/main/res/menu/main_menu.xml" value="0.1" />
