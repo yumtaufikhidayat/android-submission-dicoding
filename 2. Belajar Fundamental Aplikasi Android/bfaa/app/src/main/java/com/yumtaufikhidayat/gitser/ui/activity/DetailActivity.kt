@@ -9,12 +9,15 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayoutMediator
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.data.viewmodel.detail.DetailViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityDetailBinding
+import com.yumtaufikhidayat.gitser.ui.adapter.PagerAdapter
 import com.yumtaufikhidayat.gitser.utils.Utils.loadImage
 import com.yumtaufikhidayat.gitser.utils.Utils.makeLinks
 
@@ -36,6 +39,7 @@ class DetailActivity : AppCompatActivity() {
         setToolbar()
         setBundleData()
         showDetailData()
+//        setPagerData()
     }
 
     private fun getParcelable() {
@@ -103,7 +107,11 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setPagerData() = with(binding) {
-
+        val pagerAdapter = PagerAdapter(this@DetailActivity, bundle)
+        viewPagerDetail.adapter = pagerAdapter
+        TabLayoutMediator(tabLayoutDetail, viewPagerDetail) { tabs, position ->
+            tabs.text = resources.getString(tabTitles[position])
+        }.attach()
     }
 
     private fun openInBrowser() {
@@ -136,8 +144,10 @@ class DetailActivity : AppCompatActivity() {
     private fun showLoading(isShow: Boolean) = with(binding) {
         if (isShow) {
             shimmerLoadingDetail.visibility = View.VISIBLE
+            layoutDetailVisibility.visibility = View.GONE
         } else {
             shimmerLoadingDetail.visibility = View.GONE
+            layoutDetailVisibility.visibility = View.VISIBLE
         }
     }
 
@@ -157,5 +167,12 @@ class DetailActivity : AppCompatActivity() {
 
     companion object{
         const val EXTRA_PARCELABLE = "com.yumtaufikhidayat.gitser.ui.activity.EXTRA_PARCELABLE"
+
+        @StringRes
+        private val tabTitles = intArrayOf(
+            R.string.tvFollowing,
+            R.string.tvFollowers,
+            R.string.tvRepository
+        )
     }
 }

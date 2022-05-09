@@ -269,11 +269,21 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="gone"
+            tools:visibility="visible"
             app:layout_constraintTop_toTopOf="parent">
 
             <include layout="@layout/shimmer_detail"/>
 
         </com.facebook.shimmer.ShimmerFrameLayout>
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/layoutDetailVisibility"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:constraint_referenced_ids="viewFirstLayer, viewSecondLayer,
+            imgProfile, tvName, tvUsername, imgLocation, imgCompany, imgLink,
+            tvLocation, tvCompany, tvLink, tabLayoutDetail, viewPagerDetail"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
