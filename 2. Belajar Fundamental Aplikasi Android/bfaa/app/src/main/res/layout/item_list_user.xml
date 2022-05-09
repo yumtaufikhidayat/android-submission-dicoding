@@ -38,76 +38,33 @@
             android:textStyle="bold"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             tools:text="@tools:sample/cities"
-            app:layout_constraintTop_toTopOf="@id/imgProfilePhoto"
-            app:layout_constraintBottom_toTopOf="@id/tvName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvProfileType"
             app:layout_constraintStart_toEndOf="@id/imgProfilePhoto"
             app:layout_constraintEnd_toEndOf="parent"/>
 
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:visibility="gone"
-            tools:text="@tools:sample/cities"
+        <ImageView
+            android:id="@+id/imgUserType"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/bg_user_type"
+            android:contentDescription="@string/tvUserType"
             app:layout_constraintTop_toBottomOf="@id/tvUsername"
             app:layout_constraintBottom_toBottomOf="@id/imgProfilePhoto"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintStart_toStartOf="@id/tvUsername" />
 
         <TextView
-            android:id="@+id/tvUserFollowing"
+            android:id="@+id/tvProfileType"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvUserFollowers"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvUserRepositories"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvUserLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvUserOffice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-        <TextView
-            android:id="@+id/tvUserProfileLink"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@id/tvUsername"
-            app:layout_constraintStart_toStartOf="@id/tvUsername"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginHorizontal="8dp"
+            tools:text="@tools:sample/lorem"
+            android:textColor="@color/black"
+            android:maxLines="2"
+            app:layout_constraintStart_toEndOf="@id/imgUserType"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvUsername"
+            app:layout_constraintBottom_toBottomOf="@id/imgProfilePhoto"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -58,7 +58,7 @@ class DetailActivity : AppCompatActivity() {
             tvUsername.text = user.username
             tvFollowingNumber.text = user.following.toString()
             tvFollowersNumber.text = user.followers.toString()
-            tvRepositoryFollowers.text = user.repositories.toString()
+            tvRepositoryNumber.text = user.repositories.toString()
             tvLocation.text = user.location
             tvCompany.text = user.office
         }
@@ -90,19 +90,19 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_detail, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            android.R.id.home -> onBackPressed()
-            R.id.action_open_in_browser -> openInBrowser()
-            R.id.action_share -> shareUserProfile()
-        }
-        return super.onOptionsItemSelected(item)
-    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_detail, menu)
+//        return super.onCreateOptionsMenu(menu)
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            android.R.id.home -> onBackPressed()
+//            R.id.action_open_in_browser -> openInBrowser()
+//            R.id.action_share -> shareUserProfile()
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
 
     companion object{
         const val EXTRA_PARCELABLE = "com.yumtaufikhidayat.gitser.ui.activity.EXTRA_PARCELABLE"

@@ -3,21 +3,21 @@ package com.yumtaufikhidayat.gitser.ui.activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yumtaufikhidayat.gitser.data.User
-import com.yumtaufikhidayat.gitser.data.UserData
+import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
 import com.yumtaufikhidayat.gitser.ui.adapter.UserAdapter
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var userAdapter: UserAdapter
+    private val mainViewModel: MainViewModel by viewModels()
     private val delayMillis = 1000L
-    private var listUsers: ArrayList<User> = arrayListOf()
     private var doubleBackToExitPressedOnce = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,12 +29,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showListUsers() {
-        listUsers.addAll(UserData.listUserData)
-        userAdapter = UserAdapter(listUsers)
         binding.apply {
+            showLoading(true)
+            userAdapter = UserAdapter()
             with(rvMain) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
+                setHasFixedSize(true)
                 adapter = userAdapter
+            }
+
+            mainViewModel.apply {
+                setAllUsers()
+                getAllUsers().observe(this@MainActivity) {
+                    if (it != null) {
+                        userAdapter.setSearchUserList(it)
+                        showLoading(false)
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showLoading(isShow: Boolean) {
+        binding.apply {
+            if (isShow) {
+                shimmerLoadingMain.visibility = View.VISIBLE
+                rvMain.visibility = View.GONE
+            } else {
+                shimmerLoadingMain.visibility = View.GONE
+                rvMain.visibility = View.VISIBLE
             }
         }
     }

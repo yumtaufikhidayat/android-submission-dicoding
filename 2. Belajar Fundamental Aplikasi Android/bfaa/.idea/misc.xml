@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/bg_rounded_corners.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/bg_splashscreen.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_user_type.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/first_layer.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_browser.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_link.xml" value="0.102" />
@@ -15,7 +16,7 @@
         <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1828125" />
-        <entry key="app/src/main/res/layout/item_list_user.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/item_list_user.xml" value="0.15294117647058825" />
         <entry key="app/src/main/res/layout/shimmer_detail.xml" value="0.16778479515359462" />
         <entry key="app/src/main/res/layout/shimmer_item_user.xml" value="0.15021732875279012" />
         <entry key="app/src/main/res/menu/menu_detail.xml" value="0.1828125" />
