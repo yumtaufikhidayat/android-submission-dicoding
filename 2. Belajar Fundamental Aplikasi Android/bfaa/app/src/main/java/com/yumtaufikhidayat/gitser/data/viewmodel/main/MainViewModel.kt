@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel() {
+class MainViewModel: ViewModel() {
 
     private val apiConfig = ApiConfig.apiInstance
     private val listAllUsers = MutableLiveData<ArrayList<Search>>()
@@ -32,7 +32,7 @@ class MainViewModel : ViewModel() {
                 }
 
                 override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
-                    Log.e(TAG, "onFailure: ${t.message}")
+                    Log.d(TAG, "onFailure: ${t.message}")
                 }
             })
         }

@@ -1,13 +1,16 @@
 package com.yumtaufikhidayat.gitser.network
 
+import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.data.response.search.SearchResponse
 import com.yumtaufikhidayat.gitser.network.UrlEndpoint.ALL_USERS
+import com.yumtaufikhidayat.gitser.network.UrlEndpoint.DETAIL_PROFILE_URL
 import com.yumtaufikhidayat.gitser.network.UrlEndpoint.GITHUB_AUTH_TOKEN
 import com.yumtaufikhidayat.gitser.network.UrlEndpoint.SEARCH_USERS
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -21,4 +24,10 @@ interface ApiService {
     fun searchUser(
         @Query("q") query: String
     ): Call<SearchResponse>
+
+    @Headers(GITHUB_AUTH_TOKEN)
+    @GET(DETAIL_PROFILE_URL)
+    fun getDetailUser(
+        @Path("username") username: String
+    ): Call<DetailResponse>
 }
