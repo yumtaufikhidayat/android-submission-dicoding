@@ -14,13 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivitySearchBinding
-import com.yumtaufikhidayat.gitser.ui.adapter.UserAdapter
+import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
 
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySearchBinding
+    private lateinit var searchAdapter: SearchAdapter
     private val mainViewModel: MainViewModel by viewModels()
-    private lateinit var userAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,12 +40,12 @@ class SearchActivity : AppCompatActivity() {
 
     private fun initView() {
         showLoading(false)
-        userAdapter = UserAdapter()
+        searchAdapter = SearchAdapter()
         binding.apply {
             with(rvSearchUsers) {
                 layoutManager = LinearLayoutManager(this@SearchActivity)
                 setHasFixedSize(true)
-                adapter = userAdapter
+                adapter = searchAdapter
             }
         }
     }
@@ -87,7 +87,7 @@ class SearchActivity : AppCompatActivity() {
         mainViewModel.apply {
             setSearchUser(query)
             getSearchUser().observe(this@SearchActivity) {
-                userAdapter.setSearchUserList(it)
+                searchAdapter.submitList(it)
                 showLoading(false)
             }
         }

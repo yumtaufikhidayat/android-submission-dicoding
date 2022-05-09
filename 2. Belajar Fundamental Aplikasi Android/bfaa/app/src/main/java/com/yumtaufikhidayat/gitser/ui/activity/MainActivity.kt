@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
-import com.yumtaufikhidayat.gitser.ui.adapter.UserAdapter
+import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var userAdapter: UserAdapter
+    private lateinit var searchAdapter: SearchAdapter
     private val mainViewModel: MainViewModel by viewModels()
     private val delayMillis = 1000L
     private var doubleBackToExitPressedOnce = false
@@ -35,18 +35,18 @@ class MainActivity : AppCompatActivity() {
     private fun showListUsers() {
         binding.apply {
             showLoading(true)
-            userAdapter = UserAdapter()
+            searchAdapter = SearchAdapter()
             with(rvMain) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 setHasFixedSize(true)
-                adapter = userAdapter
+                adapter = searchAdapter
             }
 
             mainViewModel.apply {
                 setAllUsers()
                 getAllUsers().observe(this@MainActivity) {
                     if (it != null) {
-                        userAdapter.setSearchUserList(it)
+                        searchAdapter.submitList(it)
                         showLoading(false)
                     }
                 }
