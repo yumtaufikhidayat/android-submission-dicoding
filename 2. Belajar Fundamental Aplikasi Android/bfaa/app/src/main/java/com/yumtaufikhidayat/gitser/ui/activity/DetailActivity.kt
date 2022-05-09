@@ -39,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
         setToolbar()
         setBundleData()
         showDetailData()
-//        setPagerData()
+        setPagerData()
     }
 
     private fun getParcelable() {
