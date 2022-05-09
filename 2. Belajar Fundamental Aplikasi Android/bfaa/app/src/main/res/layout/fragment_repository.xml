@@ -7,4 +7,33 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragment.RepositoryFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRepos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        tools:listitem="@layout/item_list_repository"/>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            layout="@layout/shimmer_item_user"/>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/viewNoRepositoryVisibility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="layoutNoRepository"/>
+
+    <include
+        android:id="@+id/layoutNoRepository"
+        layout="@layout/layout_no_repository"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
