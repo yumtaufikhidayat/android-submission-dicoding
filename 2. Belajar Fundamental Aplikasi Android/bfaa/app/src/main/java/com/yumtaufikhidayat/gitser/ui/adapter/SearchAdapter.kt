@@ -15,7 +15,11 @@ class SearchAdapter: ListAdapter<Search, SearchAdapter.SearchViewHolder>(SearchD
         parent: ViewGroup,
         viewType: Int
     ): SearchAdapter.SearchViewHolder {
-        return SearchViewHolder(ItemListUserBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return SearchViewHolder(
+            ItemListUserBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
+        )
     }
 
     override fun onBindViewHolder(
