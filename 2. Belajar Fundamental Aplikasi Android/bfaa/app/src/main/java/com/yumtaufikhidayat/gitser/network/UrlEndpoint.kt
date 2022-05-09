@@ -10,5 +10,6 @@ object UrlEndpoint {
     const val FOLLOWING_URL = "users/{username}/following"
     const val REPOSITORY_URL = "users/{username}/repos"
     const val ALL_USERS = "users"
+    const val USERNAME = "username"
     const val GITHUB_AUTH_TOKEN = "Authorization: token ${BuildConfig.GITHUB_TOKEN_PAT}"
 }
