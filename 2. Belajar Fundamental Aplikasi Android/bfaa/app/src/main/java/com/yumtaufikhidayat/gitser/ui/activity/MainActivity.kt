@@ -1,13 +1,17 @@
 package com.yumtaufikhidayat.gitser.ui.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
 import com.yumtaufikhidayat.gitser.ui.adapter.UserAdapter
@@ -60,6 +64,19 @@ class MainActivity : AppCompatActivity() {
                 rvMain.visibility = View.VISIBLE
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.nav_search_main -> startActivity(Intent(this, SearchActivity::class.java))
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {

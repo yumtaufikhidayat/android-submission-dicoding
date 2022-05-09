@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.yumtaufikhidayat.gitser.data.response.search.Search
+import com.yumtaufikhidayat.gitser.data.response.search.SearchResponse
 import com.yumtaufikhidayat.gitser.network.ApiConfig
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -39,9 +40,28 @@ class MainViewModel() : ViewModel() {
         }
     }
 
-    fun getAllUsers(): LiveData<ArrayList<Search>> {
-        return listAllUsers
+    fun getAllUsers(): LiveData<ArrayList<Search>> = listAllUsers
+
+    fun setSearchUser(query: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            apiConfig.searchUser(query).enqueue(object : Callback<SearchResponse>{
+                override fun onResponse(
+                    call: Call<SearchResponse>,
+                    response: Response<SearchResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        listAllUsers.postValue(response.body()?.items)
+                    }
+                }
+
+                override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                    Log.e(TAG, "onFailure: ${t.message}")
+                }
+            })
+        }
     }
+
+    fun getSearchUser(): LiveData<ArrayList<Search>> = listAllUsers
 
     companion object {
         private val TAG = MainViewModel::class.java.simpleName

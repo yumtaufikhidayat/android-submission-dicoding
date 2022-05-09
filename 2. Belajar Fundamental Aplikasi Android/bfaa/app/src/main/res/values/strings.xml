@@ -12,4 +12,6 @@
     <string name="tvLink">Link</string>
     <string name="tvDetailUser">Detail pengguna</string>
     <string name="tvUserType">User type</string>
+    <string name="tvSearch">Cari</string>
+    <string name="tvSearchUser">Cari pengguna…</string>
 </resources>
