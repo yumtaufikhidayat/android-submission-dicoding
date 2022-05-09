@@ -17,6 +17,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1828125" />
+        <entry key="app/src/main/res/layout/fragment_follows.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_repository.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_list_user.xml" value="0.15294117647058825" />
         <entry key="app/src/main/res/layout/shimmer_detail.xml" value="0.16778479515359462" />
         <entry key="app/src/main/res/layout/shimmer_item_user.xml" value="0.15021732875279012" />
