@@ -32,7 +32,7 @@ class MainViewModel: ViewModel() {
                 }
 
                 override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
-                    Log.d(TAG, "onFailure: ${t.message}")
+                    Log.e(TAG, "onFailure: ${t.message}")
                 }
             })
         }
