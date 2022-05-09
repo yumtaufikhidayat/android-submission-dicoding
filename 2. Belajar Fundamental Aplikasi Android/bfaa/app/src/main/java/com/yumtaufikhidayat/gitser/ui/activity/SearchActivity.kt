@@ -39,6 +39,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initView() {
+        showLoading(false)
         userAdapter = UserAdapter()
         binding.apply {
             with(rvSearchUsers) {
@@ -50,7 +51,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        showLoading(false)
         val inflater = menuInflater
         inflater.inflate(R.menu.search_menu, menu)
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
