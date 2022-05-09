@@ -62,13 +62,13 @@ data class DetailResponse(
     val name: String,
     
     @SerializedName("company")
-    val company: String,
+    val company: String?,
     
     @SerializedName("blog")
     val blog: String,
     
     @SerializedName("location")
-    val location: String,
+    val location: String?,
     
     @SerializedName("bio")
     val bio: String,
