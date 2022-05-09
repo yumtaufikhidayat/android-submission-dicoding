@@ -67,7 +67,7 @@ class SearchActivity : AppCompatActivity() {
                         }
 
                         query.isEmpty() -> {
-                            Toast.makeText(this@SearchActivity, "Silakan mengisi kolom pencarian", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@SearchActivity, "Silakan mengisi kolom pencarian terlebih dulu", Toast.LENGTH_SHORT).show()
                             clearFocus()
                         }
                     }
