@@ -4,15 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DecodeFormat
 import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.User
 import com.yumtaufikhidayat.gitser.databinding.ActivityDetailBinding
 
