@@ -29,26 +29,29 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initView()
         showListUsers()
     }
 
-    private fun showListUsers() {
+    private fun initView() {
+        searchAdapter = SearchAdapter()
         binding.apply {
-            showLoading(true)
-            searchAdapter = SearchAdapter()
             with(rvMain) {
                 layoutManager = LinearLayoutManager(this@MainActivity)
                 setHasFixedSize(true)
                 adapter = searchAdapter
             }
+        }
+    }
 
-            mainViewModel.apply {
-                setAllUsers()
-                getAllUsers().observe(this@MainActivity) {
-                    if (it != null) {
-                        searchAdapter.submitList(it)
-                        showLoading(false)
-                    }
+    private fun showListUsers() {
+        showLoading(true)
+        mainViewModel.apply {
+            setAllUsers()
+            getAllUsers().observe(this@MainActivity) {
+                if (it != null) {
+                    searchAdapter.submitList(it)
+                    showLoading(false)
                 }
             }
         }
