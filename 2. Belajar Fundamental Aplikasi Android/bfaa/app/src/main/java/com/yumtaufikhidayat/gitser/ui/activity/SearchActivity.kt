@@ -95,15 +95,13 @@ class SearchActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLoading(isShow: Boolean) {
-        binding.apply {
-            if (isShow) {
-                shimmerLoadingSearch.visibility = View.VISIBLE
-                rvSearchUsers.visibility = View.GONE
-            } else {
-                shimmerLoadingSearch.visibility = View.GONE
-                rvSearchUsers.visibility = View.VISIBLE
-            }
+    private fun showLoading(isShow: Boolean) = with(binding) {
+        if (isShow) {
+            shimmerLoadingSearch.visibility = View.VISIBLE
+            rvSearchUsers.visibility = View.GONE
+        } else {
+            shimmerLoadingSearch.visibility = View.GONE
+            rvSearchUsers.visibility = View.VISIBLE
         }
     }
 
