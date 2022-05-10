@@ -7,6 +7,7 @@
     <string name="tvRepository">Repositori</string>
     <string name="tvRepositoryNumber">0</string>
     <string name="tvLanguage">Bahasa</string>
+    <string name="tvPublicRepo">Publik</string>
     <string name="tvOpenInBrowser">Buka di Peramban</string>
     <string name="tvShare">Bagikan</string>
     <string name="tvProfileImage">Foto profil pengguna</string>
