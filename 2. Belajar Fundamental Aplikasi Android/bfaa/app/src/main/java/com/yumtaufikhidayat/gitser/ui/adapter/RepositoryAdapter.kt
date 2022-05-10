@@ -12,7 +12,7 @@ import com.yumtaufikhidayat.gitser.data.response.detail.RepositoryResponse
 import com.yumtaufikhidayat.gitser.databinding.ItemListRepositoryBinding
 import kotlin.math.roundToInt
 
-class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.RepositoryViewHolder>(RepositoryDiffCalback) {
+class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.RepositoryViewHolder>(RepositoryDiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -64,7 +64,7 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
         }
     }
 
-    object RepositoryDiffCalback: DiffUtil.ItemCallback<RepositoryResponse>(){
+    object RepositoryDiffCallback: DiffUtil.ItemCallback<RepositoryResponse>(){
         override fun areItemsTheSame(
             oldItem: RepositoryResponse,
             newItem: RepositoryResponse
