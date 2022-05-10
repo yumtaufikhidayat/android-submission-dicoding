@@ -85,7 +85,7 @@ class FollowerFragment : Fragment() {
     private fun showNoData(isShow: Boolean) = with(binding) {
         if (isShow) {
             viewNoFollowsVisibility.visibility = View.VISIBLE
-            layoutNoFollows.tvNoDataDesc.text = getString(R.string.tvNoFollowing)
+            layoutNoFollows.tvNoDataDesc.text = getString(R.string.tvNoFollowers)
         } else {
             viewNoFollowsVisibility.visibility = View.GONE
         }
