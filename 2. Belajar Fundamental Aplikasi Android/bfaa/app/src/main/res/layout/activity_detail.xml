@@ -183,25 +183,25 @@
             android:id="@+id/tvLocation"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="10dp"
-            android:maxLines="1"
+            android:layout_marginHorizontal="12dp"
+            android:maxLines="2"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/cities"
-            app:layout_constraintStart_toEndOf="@id/imgLocation"
             app:layout_constraintTop_toTopOf="@+id/imgLocation"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@+id/imgLocation"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imgLocation"
+            app:layout_constraintStart_toEndOf="@id/imgLocation"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <ImageView
             android:id="@+id/imgCompany"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/ic_office"
             android:contentDescription="@string/tvCompany"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgLocation"/>
+            app:layout_constraintTop_toBottomOf="@id/tvLocation"
+            app:layout_constraintStart_toStartOf="@id/imgLocation"/>
 
         <TextView
             android:id="@+id/tvCompany"
@@ -212,20 +212,20 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/cities"
-            app:layout_constraintStart_toStartOf="@+id/tvLocation"
-            app:layout_constraintEnd_toEndOf="@id/tvLocation"
             app:layout_constraintTop_toTopOf="@id/imgCompany"
-            app:layout_constraintBottom_toBottomOf="@id/imgCompany"/>
+            app:layout_constraintBottom_toBottomOf="@id/imgCompany"
+            app:layout_constraintStart_toStartOf="@+id/tvLocation"
+            app:layout_constraintEnd_toEndOf="@id/tvLocation"/>
 
         <ImageView
             android:id="@+id/imgLink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
+            android:layout_marginTop="12dp"
             android:src="@drawable/ic_link"
             android:contentDescription="@string/tvLink"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imgCompany"/>
+            app:layout_constraintTop_toBottomOf="@id/tvCompany"
+            app:layout_constraintStart_toStartOf="@id/imgLocation"/>
 
         <TextView
             android:id="@+id/tvLink"
@@ -236,10 +236,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/cities"
-            app:layout_constraintStart_toStartOf="@+id/tvCompany"
-            app:layout_constraintEnd_toEndOf="@id/tvLocation"
             app:layout_constraintTop_toTopOf="@id/imgLink"
-            app:layout_constraintBottom_toBottomOf="@id/imgLink"/>
+            app:layout_constraintBottom_toBottomOf="@id/imgLink"
+            app:layout_constraintStart_toStartOf="@+id/tvCompany"
+            app:layout_constraintEnd_toEndOf="@id/tvLocation"/>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutDetail"
@@ -269,7 +269,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintTop_toTopOf="parent">
 
             <include layout="@layout/shimmer_detail"/>
@@ -281,6 +280,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
+            tools:visibility="visible"
             app:constraint_referenced_ids="viewFirstLayer, viewSecondLayer,
             imgProfile, tvName, tvUsername, imgLocation, imgCompany, imgLink,
             tvLocation, tvCompany, tvLink, tabLayoutDetail, viewPagerDetail"/>
