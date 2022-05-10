@@ -61,7 +61,7 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
             itemView.setOnClickListener {
                 try {
                     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.htmlUrl))
-                    itemView.context.startActivity(Intent.createChooser(intent, "Open with:"))
+                    itemView.context.startActivity(Intent.createChooser(intent, "Buka dengan"))
                 } catch (e: Exception) {
                     Log.e(TAG, "onBindViewHolder: ${e.message}")
                 }
