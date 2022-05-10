@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class DetailResponse(
 
     @SerializedName("login")
-    val login: String,
+    val login: String?,
     
     @SerializedName("id")
     var id: Int,
@@ -59,7 +59,7 @@ data class DetailResponse(
     var siteAdmin: Boolean,
     
     @SerializedName("name")
-    val name: String,
+    val name: String?,
     
     @SerializedName("company")
     val company: String?,
