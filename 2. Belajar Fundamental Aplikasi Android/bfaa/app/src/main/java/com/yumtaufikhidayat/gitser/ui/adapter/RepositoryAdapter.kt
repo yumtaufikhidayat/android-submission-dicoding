@@ -36,7 +36,11 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
             tvRepositoryDesc.text = item.description
             tvRepositorySize.text = item.size.toString()
             tvRepositoryLanguage.text = item.language ?: "-"
-            tvRepositoryVisibility.text = item.visibility
+            tvRepositoryVisibility.text = if (item.visibility == "public") {
+                "Public Repo"
+            } else {
+                "Private Repo"
+            }
 
             val repoSize = item.size
             tvRepositorySize.text = repoSize.toString()
