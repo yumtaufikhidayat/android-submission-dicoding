@@ -69,29 +69,17 @@ class DetailActivity : AppCompatActivity() {
                 getDetailData().observe(this@DetailActivity) { detail ->
                     data = detail
                     imgProfile.loadImage(detail.avatarUrl)
+                    tvName.text = detail.name ?: "-"
+                    tvUsername.text = detail.login ?: "-"
                     tvFollowingNumber.text = detail.following.toString()
                     tvFollowersNumber.text = detail.followers.toString()
                     tvRepositoryNumber.text = detail.publicRepos.toString()
-
-                    if (detail.name.isNullOrBlank()
-                        or detail.login.isNullOrBlank()
-                        or detail.location.isNullOrBlank()
-                        or detail.company.isNullOrBlank()
-                    ) {
-                        link = ""
-                        tvName.text = "-"
-                        tvUsername.text = "-"
-                        tvLocation.text = "-"
-                        tvCompany.text = "-"
-                        tvLink.text = "-"
-                    } else {
-                        link = detail.blog
-                        tvName.text = detail.name
-                        tvUsername.text = detail.login
-                        tvLocation.text = detail.location
-                        tvCompany.text = detail.company
-                        tvLink.text = link
+                    tvLocation.text = detail.location ?: "-"
+                    tvCompany.text = detail.company ?: "-"
+                    tvLink.text = detail.blog.ifEmpty {
+                        "-"
                     }
+                    link = tvLink.text.toString()
 
                     tvLink.makeLinks(Pair(link, View.OnClickListener {
                         try {
