@@ -88,7 +88,7 @@ class DetailActivity : AppCompatActivity() {
                         } catch (e: java.lang.Exception) {
                             Toast.makeText(
                                 this@DetailActivity,
-                                "Silakan menginstall browser terlebih dahulu.",
+                                getString(R.string.tvInstallBrowser),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
@@ -115,7 +115,7 @@ class DetailActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(
                 this,
-                "Silakan install peramban terlebih dahulu",
+                getString(R.string.tvInstallBrowser),
                 Toast.LENGTH_SHORT
             ).show()
         }
@@ -123,14 +123,14 @@ class DetailActivity : AppCompatActivity() {
 
     private fun shareUserProfile() {
         try {
-            val body = "Kunjungi & bagikan profil pengguna ini \n${data.htmlUrl}"
+            val body = String.format("%s \n%s", getString(R.string.tvVisitAndShare), data.htmlUrl)
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
                 putExtra(Intent.EXTRA_TEXT, body)
             }
             startActivity(Intent.createChooser(shareIntent, "Bagikan dengan"))
         } catch (e: Exception) {
-            Log.e("shareFailed", "onOptionsItemSelected: ${e.localizedMessage}")
+            Log.e(TAG, "onOptionsItemSelected: ${e.localizedMessage}")
         }
     }
 
@@ -160,7 +160,7 @@ class DetailActivity : AppCompatActivity() {
 
     companion object{
         const val EXTRA_PARCELABLE = "com.yumtaufikhidayat.gitser.ui.activity.EXTRA_PARCELABLE"
-
+        private val TAG = DetailActivity::class.java.simpleName
         @StringRes
         private val tabTitles = intArrayOf(
             R.string.tvFollowing,

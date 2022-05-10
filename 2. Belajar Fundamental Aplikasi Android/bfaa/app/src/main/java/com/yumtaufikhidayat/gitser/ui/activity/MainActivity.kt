@@ -57,17 +57,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showLoading(isShow: Boolean) {
-        binding.apply {
-            if (isShow) {
-                shimmerLoadingMain.visibility = View.VISIBLE
-                rvMain.visibility = View.GONE
-            } else {
-                shimmerLoadingMain.visibility = View.GONE
-                rvMain.visibility = View.VISIBLE
-            }
+    private fun showLoading(isShow: Boolean) = with(binding){
+        if (isShow) {
+            shimmerLoadingMain.visibility = View.VISIBLE
+            rvMain.visibility = View.GONE
+        } else {
+            shimmerLoadingMain.visibility = View.GONE
+            rvMain.visibility = View.VISIBLE
         }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater = menuInflater
@@ -89,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         doubleBackToExitPressedOnce = true
-        Toast.makeText(this, "Klik sekali lagi untuk keluar", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.tvClickAgainToExit), Toast.LENGTH_SHORT).show()
 
         Handler(Looper.getMainLooper())
             .postDelayed({
