@@ -61,7 +61,8 @@ class SearchActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     when {
                         query.isNotEmpty() -> {
-                            showSearchData(query)
+                            setSearchData(query)
+                            getSearchData()
                             clearFocus()
                         }
 
@@ -82,14 +83,15 @@ class SearchActivity : AppCompatActivity() {
         return true
     }
 
-    private fun showSearchData(query: String) = with(binding){
+    private fun setSearchData(query: String) = with(binding){
         showLoading(true)
-        mainViewModel.apply {
-            setSearchUser(query)
-            getSearchUser().observe(this@SearchActivity) {
-                searchAdapter.submitList(it)
-                showLoading(false)
-            }
+        mainViewModel.setSearchUser(query)
+    }
+
+    private fun getSearchData() {
+        mainViewModel.getSearchUser().observe(this@SearchActivity) {
+            searchAdapter.submitList(it)
+            showLoading(false)
         }
     }
 
