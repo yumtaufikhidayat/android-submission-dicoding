@@ -81,10 +81,10 @@ class RepositoryFragment : Fragment() {
     }
 
     private fun showNoData(isShow: Boolean) = with(binding) {
-        if (isShow) {
-            viewNoRepositoryVisibility.visibility = View.VISIBLE
+        viewNoRepositoryVisibility.visibility = if (isShow) {
+            View.VISIBLE
         } else {
-            viewNoRepositoryVisibility.visibility = View.GONE
+            View.GONE
         }
     }
 

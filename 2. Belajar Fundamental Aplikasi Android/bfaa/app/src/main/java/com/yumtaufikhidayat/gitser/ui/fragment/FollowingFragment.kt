@@ -82,14 +82,12 @@ class FollowingFragment : Fragment() {
         }
     }
 
-    private fun showNoData(isShow: Boolean) {
-        binding.apply {
-            if (isShow) {
-                viewNoFollowsVisibility.visibility = View.VISIBLE
-                layoutNoFollows.tvNoDataDesc.text = getString(R.string.tvNoFollowing)
-            } else {
-                viewNoFollowsVisibility.visibility = View.GONE
-            }
+    private fun showNoData(isShow: Boolean) = with(binding) {
+        if (isShow) {
+            viewNoFollowsVisibility.visibility = View.VISIBLE
+            layoutNoFollows.tvNoDataDesc.text = getString(R.string.tvNoFollowing)
+        } else {
+            viewNoFollowsVisibility.visibility = View.GONE
         }
     }
 
