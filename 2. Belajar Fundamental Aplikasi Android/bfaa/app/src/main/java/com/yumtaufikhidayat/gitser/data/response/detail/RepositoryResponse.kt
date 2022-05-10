@@ -11,11 +11,14 @@ data class RepositoryResponse(
     val htmlUrl: String,
 
     @SerializedName("language")
-    val language: String,
+    val language: String?,
 
     @SerializedName("name")
     val name: String,
 
     @SerializedName("size")
     val size: Int,
+
+    @SerializedName("visibility")
+    val visibility: String
 )
