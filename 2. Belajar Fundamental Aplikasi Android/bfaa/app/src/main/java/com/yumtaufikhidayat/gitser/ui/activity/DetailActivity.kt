@@ -70,18 +70,24 @@ class DetailActivity : AppCompatActivity() {
                     data = detail
 
                     imgProfile.loadImage(detail.avatarUrl)
-                    tvName.text = detail.name
-                    tvUsername.text = detail.login
                     tvFollowingNumber.text = detail.following.toString()
                     tvFollowersNumber.text = detail.followers.toString()
                     tvRepositoryNumber.text = detail.publicRepos.toString()
 
-                    if (detail.location.isNullOrBlank() || detail.company.isNullOrBlank()) {
+                    if (detail.name.isNullOrBlank()
+                        || detail.login.isNullOrBlank()
+                        || detail.location.isNullOrBlank()
+                        || detail.company.isNullOrBlank()
+                    ) {
                         link = ""
+                        tvName.text = "-"
+                        tvUsername.text = "-"
                         tvLocation.text = "-"
                         tvCompany.text = "-"
                         tvLink.text = "-"
                     } else {
+                        tvName.text = detail.name
+                        tvUsername.text = detail.login
                         link = detail.blog
                         tvLocation.text = detail.location
                         tvCompany.text = detail.company
