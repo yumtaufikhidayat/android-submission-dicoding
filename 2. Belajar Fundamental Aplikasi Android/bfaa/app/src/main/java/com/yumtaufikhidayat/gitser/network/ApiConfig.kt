@@ -17,12 +17,23 @@ object ApiConfig {
         HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
     }
 
-    private val client = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
+
+    private val builder = OkHttpClient.Builder()
         .connectTimeout(timeOutTime, TimeUnit.SECONDS)
         .writeTimeout(timeOutTime, TimeUnit.SECONDS)
         .readTimeout(timeOutTime, TimeUnit.SECONDS)
-        .build()
+        .addInterceptor(interceptor)
+        .addInterceptor { chain ->
+            val request = chain.request()
+                .newBuilder()
+                .addHeader(
+                    "GITHUB_PAT",
+                    BuildConfig.GITHUB_TOKEN_PAT
+                )
+                .build()
+            return@addInterceptor chain.proceed(request)
+        }
+    private val client = builder.build()
 
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(UrlEndpoint.BASE_URL)
