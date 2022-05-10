@@ -23,23 +23,25 @@
 
         <TextView
             android:id="@+id/tvRepositoryName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             tools:text="@string/tvRepository"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRepositoryDesc"/>
 
         <TextView
             android:id="@+id/tvRepositoryDesc"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             tools:text="@string/tvRepository"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRepositoryName"/>
 
         <ImageView
@@ -69,7 +71,7 @@
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="10dp"
-            android:contentDescription="@null"
+            android:contentDescription="@string/tvLanguage"
             android:src="@drawable/ic_outline_language"
             app:layout_constraintStart_toEndOf="@+id/tvRepositorySize"
             app:layout_constraintTop_toBottomOf="@+id/tvRepositoryDesc"
@@ -83,6 +85,27 @@
             android:textColor="@android:color/black"
             tools:text="@string/tvLanguage"
             app:layout_constraintStart_toEndOf="@+id/imgLanguage"
+            app:layout_constraintTop_toBottomOf="@id/tvRepositoryDesc"/>
+
+        <ImageView
+            android:id="@+id/imgVisibility"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="10dp"
+            android:contentDescription="@string/tvPublicRepo"
+            android:src="@drawable/ic_outline_visibility"
+            app:layout_constraintStart_toEndOf="@+id/tvRepositoryLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepositoryDesc"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tvRepositoryVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="@android:color/black"
+            tools:text="@string/tvPublicRepo"
+            app:layout_constraintStart_toEndOf="@+id/imgVisibility"
             app:layout_constraintTop_toBottomOf="@id/tvRepositoryDesc"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
