@@ -1,5 +1,8 @@
 package com.yumtaufikhidayat.gitser.ui.adapter
 
+import android.content.Intent
+import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -49,6 +52,15 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
             } else {
                 tvRepositorySize.text = String.format("%s MB", sizeIntNew)
             }
+
+            itemView.setOnClickListener {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.htmlUrl))
+                    itemView.context.startActivity(Intent.createChooser(intent, "Open with:"))
+                } catch (e: Exception) {
+                    Log.e(TAG, "onBindViewHolder: ${e.message}")
+                }
+            }
         }
     }
 
@@ -62,5 +74,9 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
             oldItem: RepositoryResponse,
             newItem: RepositoryResponse
         ): Boolean = oldItem == newItem
+    }
+
+    companion object {
+        private val TAG = RepositoryAdapter::class.java.simpleName
     }
 }
