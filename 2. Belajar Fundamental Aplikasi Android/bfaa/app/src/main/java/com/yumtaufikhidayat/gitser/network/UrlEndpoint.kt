@@ -1,7 +1,5 @@
 package com.yumtaufikhidayat.gitser.network
 
-import com.yumtaufikhidayat.gitser.BuildConfig
-
 object UrlEndpoint {
     const val BASE_URL = "https://api.github.com/"
     const val SEARCH_USERS = "search/users"
@@ -11,5 +9,4 @@ object UrlEndpoint {
     const val REPOSITORY_URL = "users/{username}/repos"
     const val ALL_USERS = "users"
     const val USERNAME = "username"
-    const val GITHUB_AUTH_TOKEN = "Authorization: token ${BuildConfig.GITHUB_TOKEN_PAT}"
 }
