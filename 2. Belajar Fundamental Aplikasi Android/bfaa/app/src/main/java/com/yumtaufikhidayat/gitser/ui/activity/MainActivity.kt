@@ -21,6 +21,7 @@ import com.yumtaufikhidayat.gitser.data.viewmodel.settings.SettingsViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
 import com.yumtaufikhidayat.gitser.databinding.ActivitySettingsBinding
 import com.yumtaufikhidayat.gitser.settings.SettingPreferences
+import com.yumtaufikhidayat.gitser.ui.activity.SettingsActivity.Companion.dataStore
 import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
 import com.yumtaufikhidayat.gitser.utils.ViewModelFactory
 

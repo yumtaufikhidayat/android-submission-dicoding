@@ -18,8 +18,6 @@ import com.yumtaufikhidayat.gitser.settings.SettingPreferences
 import com.yumtaufikhidayat.gitser.utils.ViewModelFactory
 
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
-
 class SettingsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
@@ -65,5 +63,9 @@ class SettingsActivity : AppCompatActivity() {
             android.R.id.home -> onBackPressed()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    companion object {
+        val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
     }
 }
