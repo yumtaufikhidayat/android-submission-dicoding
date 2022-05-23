@@ -6,6 +6,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorLayerBack">@color/purple_500</color>
     <color name="colorGrey">#FFC1C1C1</color>
+    <color name="p_dark">#FF24292E</color>
+    <color name="p_color">#FF545A61</color>
+    <color name="primaryLight">#FF718792</color>
+    <color name="secondaryDark">#FFAEAEAE</color>
+    <color name="secondaryColor">#FFE0E0E0</color>
 </resources>
