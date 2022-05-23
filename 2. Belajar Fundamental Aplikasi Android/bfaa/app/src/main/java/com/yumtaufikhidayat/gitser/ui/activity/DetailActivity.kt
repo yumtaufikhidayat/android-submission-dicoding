@@ -1,6 +1,7 @@
 package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.google.android.material.tabs.TabLayoutMediator
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
@@ -28,6 +30,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var bundle: Bundle
     private lateinit var dataParcel: Search
     private lateinit var link: String
+
     private val detailViewModel: DetailViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +39,7 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getParcelable()
+        checkThemes()
         setToolbar()
         setBundleData()
         showDetailData()
@@ -50,6 +54,52 @@ class DetailActivity : AppCompatActivity() {
         bundle = Bundle()
         bundle.apply {
             putString(EXTRA_PARCELABLE, dataParcel.login)
+        }
+    }
+
+    private fun checkThemes() = with(binding){
+        when (this@DetailActivity.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                viewFirstLayer.background = ContextCompat.getDrawable(this@DetailActivity, R.drawable.first_layer_black)
+                tvName.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvUsername.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowingNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowing.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowersNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowers.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepositoryNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepository.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+            }
+
+            Configuration.UI_MODE_NIGHT_NO -> {
+                viewFirstLayer.background = ContextCompat.getDrawable(this@DetailActivity, R.drawable.first_layer_white)
+                tvName.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvUsername.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvFollowingNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowing.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowersNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowers.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepositoryNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepository.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+            }
+
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                viewFirstLayer.background = ContextCompat.getDrawable(this@DetailActivity, R.drawable.first_layer_white)
+                tvName.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvUsername.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvFollowingNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowing.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowersNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvFollowers.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepositoryNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvRepository.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+                tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
+            }
         }
     }
 
