@@ -1,13 +1,16 @@
 package com.yumtaufikhidayat.gitser.ui.adapter
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.response.detail.RepositoryResponse
 import com.yumtaufikhidayat.gitser.databinding.ItemListRepositoryBinding
 import kotlin.math.roundToInt
@@ -56,6 +59,32 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
                 tvRepositorySize.text = String.format("%s KB", sizeIntKb)
             } else {
                 tvRepositorySize.text = String.format("%s MB", sizeIntNew)
+            }
+
+            when (itemView.context.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+                Configuration.UI_MODE_NIGHT_YES -> {
+                    tvRepositoryName.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
+                    tvRepositoryDesc.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
+                    tvRepositorySize.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
+                    tvRepositoryLanguage.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
+                    tvRepositoryVisibility.setTextColor(ContextCompat.getColor(itemView.context, R.color.white))
+                }
+
+                Configuration.UI_MODE_NIGHT_NO -> {
+                    tvRepositoryName.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryDesc.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositorySize.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryLanguage.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryVisibility.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                }
+
+                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                    tvRepositoryName.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryDesc.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositorySize.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryLanguage.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                    tvRepositoryVisibility.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
+                }
             }
 
             itemView.setOnClickListener {
