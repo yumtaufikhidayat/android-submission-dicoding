@@ -17,7 +17,6 @@ import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.data.viewmodel.settings.SettingsViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivityMainBinding
-import com.yumtaufikhidayat.gitser.databinding.ActivitySettingsBinding
 import com.yumtaufikhidayat.gitser.settings.SettingPreferences
 import com.yumtaufikhidayat.gitser.ui.activity.SettingsActivity.Companion.dataStore
 import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
@@ -26,7 +25,6 @@ import com.yumtaufikhidayat.gitser.utils.ViewModelFactory
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var bindingSetting: ActivitySettingsBinding
     private lateinit var searchAdapter: SearchAdapter
 
     private val mainViewModel: MainViewModel by viewModels()
@@ -44,16 +42,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initTheme() {
-        bindingSetting = ActivitySettingsBinding.inflate(layoutInflater)
-        bindingSetting.apply {
-            val pref = SettingPreferences.getInstance(dataStore)
-            val settingViewModel = ViewModelProvider(this@MainActivity, ViewModelFactory(pref))[SettingsViewModel::class.java]
-            settingViewModel.getThemeSetting().observe(this@MainActivity) {
-                if (it) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                }
+        val pref = SettingPreferences.getInstance(dataStore)
+        val settingViewModel = ViewModelProvider(this, ViewModelFactory(pref))[SettingsViewModel::class.java]
+        settingViewModel.getThemeSetting().observe(this) {
+            if (it) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
     }
