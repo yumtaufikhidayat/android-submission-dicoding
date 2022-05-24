@@ -1,9 +1,11 @@
 package com.yumtaufikhidayat.gitser.ui.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,12 +37,31 @@ class FollowingFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getArgument()
+        checkThemes()
         initView()
         showFollowingData()
     }
 
     private fun getArgument() {
         username = arguments?.getString(DetailActivity.EXTRA_PARCELABLE).toString()
+    }
+
+    private fun checkThemes() = with(binding){
+        when (requireContext().resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                layoutNoFollows.tvNoDataTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                layoutNoFollows.tvNoDataDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            }
+
+            Configuration.UI_MODE_NIGHT_NO -> {
+                layoutNoFollows.tvNoDataTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                layoutNoFollows.tvNoDataDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                layoutNoFollows.tvNoDataTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                layoutNoFollows.tvNoDataDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))}
+        }
     }
 
     private fun initView() {

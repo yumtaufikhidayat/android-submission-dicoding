@@ -1,12 +1,15 @@
 package com.yumtaufikhidayat.gitser.ui.fragment
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.detail.DetailViewModel
 import com.yumtaufikhidayat.gitser.databinding.FragmentRepositoryBinding
 import com.yumtaufikhidayat.gitser.ui.activity.DetailActivity
@@ -34,12 +37,32 @@ class RepositoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getArgument()
+        checkThemes()
         initView()
         showRepositoryData()
     }
 
     private fun getArgument() {
         username = arguments?.getString(DetailActivity.EXTRA_PARCELABLE).toString()
+    }
+
+    private fun checkThemes() = with(binding) {
+        when (requireContext().resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                layoutNoRepository.tvNoRepositoryTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                layoutNoRepository.tvNoRepositoryDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+            }
+
+            Configuration.UI_MODE_NIGHT_NO -> {
+                layoutNoRepository.tvNoRepositoryTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                layoutNoRepository.tvNoRepositoryDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                layoutNoRepository.tvNoRepositoryTitle.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                layoutNoRepository.tvNoRepositoryDesc.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+        }
     }
 
     private fun initView() {
