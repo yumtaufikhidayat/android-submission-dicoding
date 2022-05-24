@@ -50,6 +50,7 @@ class SettingsActivity : AppCompatActivity() {
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 swTheme.isChecked = false
+                swTheme.setTextColor(ContextCompat.getColor(this@SettingsActivity, R.color.black))
             }
         }
 
