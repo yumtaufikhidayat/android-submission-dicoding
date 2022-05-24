@@ -7,12 +7,10 @@ import android.os.Looper
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
@@ -53,16 +51,9 @@ class MainActivity : AppCompatActivity() {
             settingViewModel.getThemeSetting().observe(this@MainActivity) {
                 if (it) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                    swTheme.isChecked = true
-                    swTheme.setTextColor(ContextCompat.getColor(this@MainActivity, R.color.white))
                 } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    swTheme.isChecked = false
                 }
-            }
-
-            swTheme.setOnCheckedChangeListener { _: CompoundButton?, isChecked ->
-                settingViewModel.saveThemeSetting(isChecked)
             }
         }
     }
