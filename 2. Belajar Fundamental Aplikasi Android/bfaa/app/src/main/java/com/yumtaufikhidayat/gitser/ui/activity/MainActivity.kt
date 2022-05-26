@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_search_main -> startActivity(Intent(this, SearchActivity::class.java))
+            R.id.nav_favorite -> startActivity(Intent(this, FavoriteActivity::class.java))
             R.id.nav_settings -> startActivity(Intent(this, SettingsActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
