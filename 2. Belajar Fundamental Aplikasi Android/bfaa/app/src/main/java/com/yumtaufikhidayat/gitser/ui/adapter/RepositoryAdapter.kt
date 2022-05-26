@@ -77,14 +77,6 @@ class RepositoryAdapter: ListAdapter<RepositoryResponse, RepositoryAdapter.Repos
                     tvRepositoryLanguage.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
                     tvRepositoryVisibility.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
                 }
-
-                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                    tvRepositoryName.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                    tvRepositoryDesc.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                    tvRepositorySize.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                    tvRepositoryLanguage.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                    tvRepositoryVisibility.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                }
             }
 
             itemView.setOnClickListener {

@@ -48,11 +48,6 @@ class SearchAdapter: ListAdapter<Search, SearchAdapter.SearchViewHolder>(SearchD
                     tvUsername.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
                     tvProfileType.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
                 }
-
-                Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                    tvUsername.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                    tvProfileType.setTextColor(ContextCompat.getColor(itemView.context, R.color.black))
-                }
             }
 
             constraintItemUser.setOnClickListener {

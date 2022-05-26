@@ -95,20 +95,6 @@ class DetailActivity : AppCompatActivity() {
                 tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
                 tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
             }
-
-            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                viewFirstLayer.background = ContextCompat.getDrawable(this@DetailActivity, R.drawable.first_layer_white)
-                tvName.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
-                tvUsername.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
-                tvFollowingNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvFollowing.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvFollowersNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvFollowers.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvRepositoryNumber.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvRepository.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
-                tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
-                tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
-            }
         }
     }
 
