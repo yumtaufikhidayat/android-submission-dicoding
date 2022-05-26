@@ -9,6 +9,8 @@
         <entry key="app/src/main/res/drawable/first_layer.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/first_layer_black.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/ic_browser.xml" value="0.1125" />
+        <entry key="app/src/main/res/drawable/ic_favorite_grey.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favorite_purple.xml" value="0.13094024658203116" />
         <entry key="app/src/main/res/drawable/ic_link.xml" value="0.102" />
         <entry key="app/src/main/res/drawable/ic_location.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/ic_office.xml" value="0.1125" />

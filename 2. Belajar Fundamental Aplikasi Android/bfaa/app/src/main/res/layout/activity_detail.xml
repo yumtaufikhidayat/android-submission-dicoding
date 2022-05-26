@@ -42,6 +42,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 
+        <ToggleButton
+            android:id="@+id/toggleFavoriteDetailSearch"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/favorite_toggle"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintBottom_toBottomOf="@id/imgProfile"
+            app:layout_constraintEnd_toEndOf="@id/imgProfile"/>
+
         <TextView
             android:id="@+id/tvName"
             android:layout_width="wrap_content"

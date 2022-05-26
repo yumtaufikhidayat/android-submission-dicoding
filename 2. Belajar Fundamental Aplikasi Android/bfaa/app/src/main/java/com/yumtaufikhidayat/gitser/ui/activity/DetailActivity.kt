@@ -22,6 +22,10 @@ import com.yumtaufikhidayat.gitser.databinding.ActivityDetailBinding
 import com.yumtaufikhidayat.gitser.ui.adapter.PagerAdapter
 import com.yumtaufikhidayat.gitser.utils.Utils.loadImage
 import com.yumtaufikhidayat.gitser.utils.Utils.makeLinks
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class DetailActivity : AppCompatActivity() {
 
@@ -45,6 +49,7 @@ class DetailActivity : AppCompatActivity() {
         initObserver()
         showDetailData()
         setPagerData()
+        saveToFavorite()
     }
 
     private fun getParcelable() {
@@ -138,6 +143,46 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun saveToFavorite() = with(binding) {
+        var isChecked = false
+        CoroutineScope(Dispatchers.IO).launch {
+            val count = detailViewModel.checkUserFavorite(dataParcel.id)
+            withContext(Dispatchers.Main) {
+                if (count != null) {
+                    if (count > 0) {
+                        toggleFavoriteDetailSearch.isChecked = true
+                        isChecked = true
+                    } else {
+                        toggleFavoriteDetailSearch.isChecked = false
+                        isChecked = false
+                    }
+                }
+            }
+        }
+
+        toggleFavoriteDetailSearch.setOnClickListener {
+            isChecked = !isChecked
+            if (isChecked) {
+                detailViewModel.addToFavorite(
+                    dataParcel.id,
+                    dataParcel.login,
+                    dataParcel.avatarUrl,
+                    dataParcel.type
+                )
+                showToast("Ditambahkan ke favorit")
+            } else {
+                detailViewModel.removeFromFavorite(dataParcel.id)
+                showToast("Dihapus dari favorit")
+            }
+
+            toggleFavoriteDetailSearch.isChecked = isChecked
+        }
+    }
+
+    private fun showToast(text: String) {
+        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
     }
 
     private fun setPagerData() = with(binding) {

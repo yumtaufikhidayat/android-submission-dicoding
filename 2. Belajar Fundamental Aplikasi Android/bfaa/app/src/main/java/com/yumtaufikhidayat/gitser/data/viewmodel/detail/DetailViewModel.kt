@@ -1,18 +1,25 @@
 package com.yumtaufikhidayat.gitser.data.viewmodel.detail
 
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.yumtaufikhidayat.gitser.data.local.FavoriteDao
+import com.yumtaufikhidayat.gitser.data.local.FavoriteEntity
+import com.yumtaufikhidayat.gitser.data.local.UserDatabase
 import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
 import com.yumtaufikhidayat.gitser.data.response.detail.RepositoryResponse
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.network.ApiConfig
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailViewModel: ViewModel() {
+class DetailViewModel(application: Application): AndroidViewModel(application) {
 
     private val apiConfig = ApiConfig.apiInstance
 
@@ -30,6 +37,13 @@ class DetailViewModel: ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private var userDao: FavoriteDao?
+    private var userDb: UserDatabase? = UserDatabase.getDatabase(application)
+
+    init {
+        userDao = userDb?.favoriteUserDao()
+    }
 
     fun setDetailData(username: String) {
         _isLoading.value = true
@@ -116,6 +130,24 @@ class DetailViewModel: ViewModel() {
                     Log.e(TAG, "onFailure: ${t.message}")
                 }
             })
+    }
+
+    fun addToFavorite(id: Int, username: String, avatarUrl: String, type: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val user = FavoriteEntity(
+                id, username, avatarUrl, type
+            )
+
+            userDao?.addUserToFavorite(user)
+        }
+    }
+
+    suspend fun checkUserFavorite(id: Int) = userDao?.checkUserFavorite(id)
+
+    fun removeFromFavorite(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            userDao?.removeUserFromFavorite(id)
+        }
     }
 
     companion object {
