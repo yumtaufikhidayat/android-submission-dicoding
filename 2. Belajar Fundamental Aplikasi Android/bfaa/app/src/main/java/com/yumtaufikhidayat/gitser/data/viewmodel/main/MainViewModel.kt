@@ -18,37 +18,55 @@ class MainViewModel: ViewModel() {
     private val _listAllUsersData = MutableLiveData<ArrayList<Search>>()
     val listAllUsersData: LiveData<ArrayList<Search>> = _listAllUsersData
 
-    fun setAllUsers() {
-        apiConfig.getAllUsers().enqueue(object : Callback<ArrayList<Search>>{
-            override fun onResponse(
-                call: Call<ArrayList<Search>>,
-                response: Response<ArrayList<Search>>
-            ) {
-                if (response.isSuccessful) {
-                    _listAllUsersData.postValue(response.body())
-                }
-            }
+    private val _listAllSearchUsersData = MutableLiveData<ArrayList<Search>>()
+    val listAllSearchUsersData: LiveData<ArrayList<Search>> = _listAllSearchUsersData
 
-            override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
-                Log.e(TAG, "onFailure: ${t.message}")
-            }
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
+    init {
+        setAllUsers()
+    }
+
+    private fun setAllUsers() {
+        _isLoading.value = true
+        apiConfig.getAllUsers()
+            .enqueue(object : Callback<ArrayList<Search>>{
+                override fun onResponse(
+                    call: Call<ArrayList<Search>>,
+                    response: Response<ArrayList<Search>>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful) {
+                        _listAllUsersData.postValue(response.body())
+                    }
+                }
+
+                override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
+                    _isLoading.value = false
+                    Log.e(TAG, "onFailure: ${t.message}")
+                }
         })
     }
 
     fun setSearchUser(query: String) {
-        apiConfig.searchUser(query).enqueue(object : Callback<SearchResponse>{
-            override fun onResponse(
-                call: Call<SearchResponse>,
-                response: Response<SearchResponse>
-            ) {
-                if (response.isSuccessful) {
-                    _listAllUsersData.postValue(response.body()?.items)
+        _isLoading.value = true
+        apiConfig.searchUser(query)
+            .enqueue(object : Callback<SearchResponse>{
+                override fun onResponse(
+                    call: Call<SearchResponse>,
+                    response: Response<SearchResponse>
+                ) {
+                    _isLoading.value = false
+                    if (response.isSuccessful) {
+                        _listAllSearchUsersData.postValue(response.body()?.items)
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
-                Log.e(TAG, "onFailure: ${t.message}")
-            }
+                override fun onFailure(call: Call<SearchResponse>, t: Throwable) {
+                    _isLoading.value = false
+                    Log.e(TAG, "onFailure: ${t.message}")
+                }
         })
     }
 

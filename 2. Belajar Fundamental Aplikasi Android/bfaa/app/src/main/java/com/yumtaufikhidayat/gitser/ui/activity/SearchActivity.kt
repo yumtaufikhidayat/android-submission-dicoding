@@ -29,6 +29,7 @@ class SearchActivity : AppCompatActivity() {
 
         initActionBar()
         initView()
+        initObserver()
     }
 
     private fun initActionBar() {
@@ -39,7 +40,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        showLoading(false)
         searchAdapter = SearchAdapter()
         binding.apply {
             with(rvSearchUsers) {
@@ -47,6 +47,17 @@ class SearchActivity : AppCompatActivity() {
                 setHasFixedSize(true)
                 adapter = searchAdapter
             }
+        }
+    }
+
+    private fun initObserver() {
+
+        mainViewModel.listAllSearchUsersData.observe(this@SearchActivity) {
+            searchAdapter.submitList(it)
+        }
+
+        mainViewModel.isLoading.observe(this) {
+            showLoading(it)
         }
     }
 
@@ -62,7 +73,6 @@ class SearchActivity : AppCompatActivity() {
                     when {
                         query.isNotEmpty() -> {
                             setSearchData(query)
-                            getSearchData()
                             clearFocus()
                         }
 
@@ -83,16 +93,8 @@ class SearchActivity : AppCompatActivity() {
         return true
     }
 
-    private fun setSearchData(query: String) = with(binding){
-        showLoading(true)
+    private fun setSearchData(query: String) {
         mainViewModel.setSearchUser(query)
-    }
-
-    private fun getSearchData() {
-        mainViewModel.listAllUsersData.observe(this@SearchActivity) {
-            searchAdapter.submitList(it)
-            showLoading(false)
-        }
     }
 
     private fun showLoading(isShow: Boolean) = with(binding) {

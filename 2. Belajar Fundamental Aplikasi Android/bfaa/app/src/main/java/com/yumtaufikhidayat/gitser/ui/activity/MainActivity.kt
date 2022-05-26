@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         initTheme()
         initView()
-        showListUsers()
+        initObserver()
     }
 
     private fun initTheme() {
@@ -64,16 +64,15 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showListUsers() {
-        showLoading(true)
-        mainViewModel.apply {
-            setAllUsers()
-            listAllUsersData.observe(this@MainActivity) {
-                if (it != null) {
-                    searchAdapter.submitList(it)
-                    showLoading(false)
-                }
+    private fun initObserver() {
+        mainViewModel.listAllUsersData.observe(this@MainActivity) {
+            if (it != null) {
+                searchAdapter.submitList(it)
             }
+        }
+
+        mainViewModel.isLoading.observe(this) {
+            showLoading(it)
         }
     }
 
