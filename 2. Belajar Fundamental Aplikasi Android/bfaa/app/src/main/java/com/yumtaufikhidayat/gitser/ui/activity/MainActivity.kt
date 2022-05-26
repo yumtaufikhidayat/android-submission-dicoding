@@ -65,14 +65,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        mainViewModel.listAllUsersData.observe(this@MainActivity) {
-            if (it != null) {
-                searchAdapter.submitList(it)
+        mainViewModel.apply {
+            listAllUsersData.observe(this@MainActivity) {
+                if (it != null) {
+                    searchAdapter.submitList(it)
+                }
             }
-        }
 
-        mainViewModel.isLoading.observe(this) {
-            showLoading(it)
+            isLoading.observe(this@MainActivity) {
+                showLoading(it)
+            }
         }
     }
 

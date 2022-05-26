@@ -51,13 +51,14 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
+        mainViewModel.apply {
+            listAllSearchUsersData.observe(this@SearchActivity) {
+                searchAdapter.submitList(it)
+            }
 
-        mainViewModel.listAllSearchUsersData.observe(this) {
-            searchAdapter.submitList(it)
-        }
-
-        mainViewModel.isLoading.observe(this) {
-            showLoading(it)
+            isLoading.observe(this@SearchActivity) {
+                showLoading(it)
+            }
         }
     }
 

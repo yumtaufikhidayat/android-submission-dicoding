@@ -39,7 +39,7 @@ class RepositoryFragment : Fragment() {
         getArgument()
         checkThemes()
         initView()
-        showRepositoryData()
+        initObserver()
     }
 
     private fun getArgument() {
@@ -75,8 +75,7 @@ class RepositoryFragment : Fragment() {
         }
     }
 
-    private fun showRepositoryData() {
-        showLoading(true)
+    private fun initObserver() {
         detailViewModel.apply {
             setListOfRepositories(username)
             listOfRepositoriesData.observe(viewLifecycleOwner) {
@@ -87,8 +86,11 @@ class RepositoryFragment : Fragment() {
                     } else {
                         showNoData(true)
                     }
-                    showLoading(false)
                 }
+            }
+
+            isLoading.observe(viewLifecycleOwner) {
+                showLoading(it)
             }
         }
     }
