@@ -57,6 +57,14 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun setToolbar() {
+        supportActionBar?.apply {
+            title = dataParcel.login
+            setDisplayHomeAsUpEnabled(true)
+            elevation = 0F
+        }
+    }
+
     private fun checkThemes() = with(binding){
         when (this@DetailActivity.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
             Configuration.UI_MODE_NIGHT_YES -> {
@@ -100,14 +108,6 @@ class DetailActivity : AppCompatActivity() {
                 tvLocation.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
                 tvCompany.setTextColor(ContextCompat.getColor(this@DetailActivity, R.color.black))
             }
-        }
-    }
-
-    private fun setToolbar() {
-        supportActionBar?.apply {
-            title = dataParcel.login
-            setDisplayHomeAsUpEnabled(true)
-            elevation = 0F
         }
     }
 
