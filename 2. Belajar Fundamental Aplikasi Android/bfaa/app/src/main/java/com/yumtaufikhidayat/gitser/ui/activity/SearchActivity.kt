@@ -52,7 +52,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun initObserver() {
 
-        mainViewModel.listAllSearchUsersData.observe(this@SearchActivity) {
+        mainViewModel.listAllSearchUsersData.observe(this) {
             searchAdapter.submitList(it)
         }
 
