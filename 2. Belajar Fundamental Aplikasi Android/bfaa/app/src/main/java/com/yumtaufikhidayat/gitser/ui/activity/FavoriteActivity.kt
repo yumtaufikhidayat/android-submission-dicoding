@@ -16,7 +16,7 @@ import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
 class FavoriteActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityFavoriteBinding
-    private lateinit var searchdapter: SearchAdapter
+    private lateinit var searchAdapter: SearchAdapter
     private val favoriteViewModel: FavoriteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,12 +37,12 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun setAdapter() {
-        searchdapter = SearchAdapter()
+        searchAdapter = SearchAdapter()
         binding.apply {
             with(rvFavorite) {
                 setHasFixedSize(true)
                 layoutManager = LinearLayoutManager(this@FavoriteActivity)
-                adapter = searchdapter
+                adapter = searchAdapter
             }
         }
     }
@@ -52,7 +52,7 @@ class FavoriteActivity : AppCompatActivity() {
             if (it != null) {
                 if (it.isNotEmpty()) {
                     val list = mapList(it)
-                    searchdapter.submitList(list)
+                    searchAdapter.submitList(list)
                     showNoData(false)
                 } else {
                     showNoData(true)
