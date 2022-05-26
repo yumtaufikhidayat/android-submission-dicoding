@@ -116,7 +116,7 @@ class DetailActivity : AppCompatActivity() {
         binding.apply {
             detailViewModel.apply {
                 setDetailData(dataParcel.login)
-                getDetailData().observe(this@DetailActivity) { detail ->
+                detailInfoData.observe(this@DetailActivity) { detail ->
                     data = detail
                     imgProfile.loadImage(detail.avatarUrl)
                     tvName.text = detail.name ?: "-"

@@ -79,7 +79,7 @@ class RepositoryFragment : Fragment() {
         showLoading(true)
         detailViewModel.apply {
             setListOfRepositories(username)
-            getListOfRepositories().observe(viewLifecycleOwner) {
+            listOfRepositoriesData.observe(viewLifecycleOwner) {
                 if (it != null) {
                     if (it.size != 0) {
                         repositoryAdapter.submitList(it)

@@ -15,10 +15,18 @@ import retrofit2.Response
 class DetailViewModel: ViewModel() {
 
     private val apiConfig = ApiConfig.apiInstance
-    private val detailData = MutableLiveData<DetailResponse>()
-    private val listOfFollowing = MutableLiveData<ArrayList<Search>>()
-    private val listOfFollowers = MutableLiveData<ArrayList<Search>>()
-    private val listOfRepositories = MutableLiveData<ArrayList<RepositoryResponse>>()
+
+    private val _detailInfoData = MutableLiveData<DetailResponse>()
+    val detailInfoData: LiveData<DetailResponse> = _detailInfoData
+
+    private val _listOfFollowingData = MutableLiveData<ArrayList<Search>>()
+    val listOfFollowingData: LiveData<ArrayList<Search>> = _listOfFollowingData
+
+    private val _listOfFollowersData = MutableLiveData<ArrayList<Search>>()
+    val listOfFollowersData: LiveData<ArrayList<Search>> = _listOfFollowersData
+
+    private val _listOfRepositoriesData = MutableLiveData<ArrayList<RepositoryResponse>>()
+    val listOfRepositoriesData: LiveData<ArrayList<RepositoryResponse>> = _listOfRepositoriesData
 
     fun setDetailData(username: String) {
         apiConfig.getDetailUser(username)
@@ -28,7 +36,7 @@ class DetailViewModel: ViewModel() {
                     response: Response<DetailResponse>
                 ) {
                     if (response.isSuccessful) {
-                        detailData.postValue(response.body())
+                        _detailInfoData.postValue(response.body())
                     }
                 }
 
@@ -38,8 +46,6 @@ class DetailViewModel: ViewModel() {
             })
     }
 
-    fun getDetailData(): LiveData<DetailResponse> = detailData
-
     fun setListOfFollowing(username: String) {
         apiConfig.getFollowingUsers(username)
             .enqueue(object : Callback<ArrayList<Search>>{
@@ -48,7 +54,7 @@ class DetailViewModel: ViewModel() {
                     response: Response<ArrayList<Search>>
                 ) {
                     if (response.isSuccessful) {
-                        listOfFollowing.postValue(response.body())
+                        _listOfFollowingData.postValue(response.body())
                     }
                 }
 
@@ -57,8 +63,6 @@ class DetailViewModel: ViewModel() {
                 }
             })
     }
-
-    fun getListOfFollowing(): LiveData<ArrayList<Search>> = listOfFollowing
 
     fun setListOfFollower(username: String) {
         apiConfig.getFollowerUsers(username)
@@ -68,7 +72,7 @@ class DetailViewModel: ViewModel() {
                     response: Response<ArrayList<Search>>
                 ) {
                     if (response.isSuccessful) {
-                        listOfFollowers.postValue(response.body())
+                        _listOfFollowersData.postValue(response.body())
                     }
                 }
 
@@ -78,8 +82,6 @@ class DetailViewModel: ViewModel() {
             })
     }
 
-    fun getListOfFollower(): LiveData<ArrayList<Search>> = listOfFollowers
-
     fun setListOfRepositories(username: String) {
         apiConfig.getRepositories(username)
             .enqueue(object : Callback<ArrayList<RepositoryResponse>>{
@@ -88,7 +90,7 @@ class DetailViewModel: ViewModel() {
                     response: Response<ArrayList<RepositoryResponse>>
                 ) {
                     if (response.isSuccessful) {
-                        listOfRepositories.postValue(response.body())
+                        _listOfRepositoriesData.postValue(response.body())
                     }
                 }
 
@@ -100,8 +102,6 @@ class DetailViewModel: ViewModel() {
                 }
             })
     }
-
-    fun getListOfRepositories(): LiveData<ArrayList<RepositoryResponse>> = listOfRepositories
 
     companion object {
         private val TAG = DetailViewModel::class.java.simpleName

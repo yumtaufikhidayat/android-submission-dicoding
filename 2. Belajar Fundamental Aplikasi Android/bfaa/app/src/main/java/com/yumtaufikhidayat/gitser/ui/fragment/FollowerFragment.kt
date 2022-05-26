@@ -79,7 +79,7 @@ class FollowerFragment : Fragment() {
         showLoading(true)
         detailViewModel.apply {
             setListOfFollower(username)
-            getListOfFollower().observe(viewLifecycleOwner) {
+            listOfFollowersData.observe(viewLifecycleOwner) {
                 if (it != null) {
                     if (it.size != 0) {
                         searchAdapter.submitList(it)
