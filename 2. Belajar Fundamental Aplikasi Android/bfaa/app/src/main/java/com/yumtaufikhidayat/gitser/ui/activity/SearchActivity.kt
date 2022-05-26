@@ -72,7 +72,7 @@ class SearchActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String): Boolean {
                     when {
                         query.isNotEmpty() -> {
-                            setSearchData(query)
+                            mainViewModel.setSearchUser(query)
                             clearFocus()
                         }
 
@@ -91,10 +91,6 @@ class SearchActivity : AppCompatActivity() {
             })
         }
         return true
-    }
-
-    private fun setSearchData(query: String) {
-        mainViewModel.setSearchUser(query)
     }
 
     private fun showLoading(isShow: Boolean) = with(binding) {
