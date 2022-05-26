@@ -39,8 +39,8 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getParcelable()
+        initToolbar()
         checkThemes()
-        setToolbar()
         setBundleData()
         showDetailData()
         setPagerData()
@@ -57,7 +57,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setToolbar() {
+    private fun initToolbar() {
         supportActionBar?.apply {
             title = dataParcel.login
             setDisplayHomeAsUpEnabled(true)
