@@ -28,67 +28,81 @@ class DetailViewModel: ViewModel() {
     private val _listOfRepositoriesData = MutableLiveData<ArrayList<RepositoryResponse>>()
     val listOfRepositoriesData: LiveData<ArrayList<RepositoryResponse>> = _listOfRepositoriesData
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     fun setDetailData(username: String) {
+        _isLoading.value = true
         apiConfig.getDetailUser(username)
             .enqueue(object : Callback<DetailResponse>{
                 override fun onResponse(
                     call: Call<DetailResponse>,
                     response: Response<DetailResponse>
                 ) {
+                    _isLoading.value = false
                     if (response.isSuccessful) {
                         _detailInfoData.postValue(response.body())
                     }
                 }
 
                 override fun onFailure(call: Call<DetailResponse>, t: Throwable) {
+                    _isLoading.value = false
                     Log.d(TAG, "onFailure: ${t.message}")
                 }
             })
     }
 
     fun setListOfFollowing(username: String) {
+        _isLoading.value = true
         apiConfig.getFollowingUsers(username)
             .enqueue(object : Callback<ArrayList<Search>>{
                 override fun onResponse(
                     call: Call<ArrayList<Search>>,
                     response: Response<ArrayList<Search>>
                 ) {
+                    _isLoading.value = false
                     if (response.isSuccessful) {
                         _listOfFollowingData.postValue(response.body())
                     }
                 }
 
                 override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
                 }
             })
     }
 
     fun setListOfFollower(username: String) {
+        _isLoading.value = true
         apiConfig.getFollowerUsers(username)
             .enqueue(object : Callback<ArrayList<Search>>{
                 override fun onResponse(
                     call: Call<ArrayList<Search>>,
                     response: Response<ArrayList<Search>>
                 ) {
+                    _isLoading.value = false
                     if (response.isSuccessful) {
                         _listOfFollowersData.postValue(response.body())
                     }
                 }
 
                 override fun onFailure(call: Call<ArrayList<Search>>, t: Throwable) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
                 }
             })
     }
 
     fun setListOfRepositories(username: String) {
+        _isLoading.value = true
         apiConfig.getRepositories(username)
             .enqueue(object : Callback<ArrayList<RepositoryResponse>>{
                 override fun onResponse(
                     call: Call<ArrayList<RepositoryResponse>>,
                     response: Response<ArrayList<RepositoryResponse>>
                 ) {
+                    _isLoading.value = false
                     if (response.isSuccessful) {
                         _listOfRepositoriesData.postValue(response.body())
                     }
@@ -98,6 +112,7 @@ class DetailViewModel: ViewModel() {
                     call: Call<ArrayList<RepositoryResponse>>,
                     t: Throwable
                 ) {
+                    _isLoading.value = false
                     Log.e(TAG, "onFailure: ${t.message}")
                 }
             })

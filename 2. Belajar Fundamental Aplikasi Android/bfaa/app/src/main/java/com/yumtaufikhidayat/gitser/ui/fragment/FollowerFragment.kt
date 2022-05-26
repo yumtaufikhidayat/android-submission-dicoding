@@ -39,7 +39,7 @@ class FollowerFragment : Fragment() {
         getArgument()
         checkThemes()
         initView()
-        showFollowersData()
+        initObserver()
     }
 
     private fun getArgument() {
@@ -75,8 +75,7 @@ class FollowerFragment : Fragment() {
         }
     }
 
-    private fun showFollowersData() {
-        showLoading(true)
+    private fun initObserver() {
         detailViewModel.apply {
             setListOfFollower(username)
             listOfFollowersData.observe(viewLifecycleOwner) {
@@ -87,8 +86,11 @@ class FollowerFragment : Fragment() {
                     } else {
                         showNoData(true)
                     }
-                    showLoading(false)
                 }
+            }
+
+            isLoading.observe(viewLifecycleOwner) {
+                showLoading(it)
             }
         }
     }

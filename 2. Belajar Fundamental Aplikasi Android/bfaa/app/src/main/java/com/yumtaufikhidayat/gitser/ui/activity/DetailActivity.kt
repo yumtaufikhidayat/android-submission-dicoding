@@ -39,9 +39,10 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getParcelable()
+        setBundleData()
         initToolbar()
         checkThemes()
-        setBundleData()
+        initObserver()
         showDetailData()
         setPagerData()
     }
@@ -111,8 +112,13 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    private fun initObserver() {
+        detailViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
+    }
+
     private fun showDetailData() {
-        showLoading(true)
         binding.apply {
             detailViewModel.apply {
                 setDetailData(dataParcel.login)
@@ -143,7 +149,6 @@ class DetailActivity : AppCompatActivity() {
                             ).show()
                         }
                     }))
-                    showLoading(false)
                 }
             }
         }

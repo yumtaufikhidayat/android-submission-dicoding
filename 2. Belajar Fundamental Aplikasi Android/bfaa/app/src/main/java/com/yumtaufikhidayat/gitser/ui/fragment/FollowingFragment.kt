@@ -39,7 +39,7 @@ class FollowingFragment : Fragment() {
         getArgument()
         checkThemes()
         initView()
-        showFollowingData()
+        initObserver()
     }
 
     private fun getArgument() {
@@ -75,8 +75,7 @@ class FollowingFragment : Fragment() {
         }
     }
 
-    private fun showFollowingData() {
-        showLoading(true)
+    private fun initObserver() {
         detailViewModel.apply {
             setListOfFollowing(username)
             listOfFollowingData.observe(viewLifecycleOwner) {
@@ -87,8 +86,11 @@ class FollowingFragment : Fragment() {
                     } else {
                         showNoData(true)
                     }
-                    showLoading(false)
                 }
+            }
+
+            isLoading.observe(viewLifecycleOwner) {
+                showLoading(it)
             }
         }
     }
