@@ -2,9 +2,11 @@ package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.local.FavoriteEntity
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.data.viewmodel.favorite.FavoriteViewModel
@@ -48,8 +50,13 @@ class FavoriteActivity : AppCompatActivity() {
     private fun initObserver() {
         favoriteViewModel.getFavoriteUser()?.observe(this) {
             if (it != null) {
-                val list = mapList(it)
-                searchdapter.submitList(list)
+                if (it.isNotEmpty()) {
+                    val list = mapList(it)
+                    searchdapter.submitList(list)
+                    showNoData(false)
+                } else {
+                    showNoData(true)
+                }
             }
         }
     }
@@ -67,6 +74,15 @@ class FavoriteActivity : AppCompatActivity() {
         }
 
         return listOfUsers
+    }
+
+    private fun showNoData(isShow: Boolean) = with(binding) {
+        if (isShow) {
+            viewNoFavoriteVisibility.visibility = View.VISIBLE
+            layoutNoFavorite.tvNoDataDesc.text = getString(R.string.tvNoFavorite)
+        } else {
+            viewNoFavoriteVisibility.visibility = View.GONE
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
