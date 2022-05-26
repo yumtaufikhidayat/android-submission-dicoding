@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
         showLoading(true)
         mainViewModel.apply {
             setAllUsers()
-            getAllUsers().observe(this@MainActivity) {
+            listAllUsersData.observe(this@MainActivity) {
                 if (it != null) {
                     searchAdapter.submitList(it)
                     showLoading(false)

@@ -89,7 +89,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun getSearchData() {
-        mainViewModel.getSearchUser().observe(this@SearchActivity) {
+        mainViewModel.listAllUsersData.observe(this@SearchActivity) {
             searchAdapter.submitList(it)
             showLoading(false)
         }

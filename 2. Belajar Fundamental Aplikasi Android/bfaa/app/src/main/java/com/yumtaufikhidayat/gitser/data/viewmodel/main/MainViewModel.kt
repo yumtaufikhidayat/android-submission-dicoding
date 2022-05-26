@@ -14,7 +14,9 @@ import retrofit2.Response
 class MainViewModel: ViewModel() {
 
     private val apiConfig = ApiConfig.apiInstance
-    private val listAllUsers = MutableLiveData<ArrayList<Search>>()
+
+    private val _listAllUsersData = MutableLiveData<ArrayList<Search>>()
+    val listAllUsersData: LiveData<ArrayList<Search>> = _listAllUsersData
 
     fun setAllUsers() {
         apiConfig.getAllUsers().enqueue(object : Callback<ArrayList<Search>>{
@@ -23,7 +25,7 @@ class MainViewModel: ViewModel() {
                 response: Response<ArrayList<Search>>
             ) {
                 if (response.isSuccessful) {
-                    listAllUsers.postValue(response.body())
+                    _listAllUsersData.postValue(response.body())
                 }
             }
 
@@ -33,8 +35,6 @@ class MainViewModel: ViewModel() {
         })
     }
 
-    fun getAllUsers(): LiveData<ArrayList<Search>> = listAllUsers
-
     fun setSearchUser(query: String) {
         apiConfig.searchUser(query).enqueue(object : Callback<SearchResponse>{
             override fun onResponse(
@@ -42,7 +42,7 @@ class MainViewModel: ViewModel() {
                 response: Response<SearchResponse>
             ) {
                 if (response.isSuccessful) {
-                    listAllUsers.postValue(response.body()?.items)
+                    _listAllUsersData.postValue(response.body()?.items)
                 }
             }
 
@@ -51,8 +51,6 @@ class MainViewModel: ViewModel() {
             }
         })
     }
-
-    fun getSearchUser(): LiveData<ArrayList<Search>> = listAllUsers
 
     companion object {
         private val TAG = MainViewModel::class.java.simpleName
