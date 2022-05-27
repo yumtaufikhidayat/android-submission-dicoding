@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         doubleBackToExitPressedOnce = true
-        Toasty.success(this, getString(R.string.tvClickAgainToExit), Toast.LENGTH_SHORT).show()
+        Toasty.success(this, getString(R.string.tvClickAgainToExit), Toast.LENGTH_SHORT, false).show()
 
         Handler(Looper.getMainLooper())
             .postDelayed({

@@ -221,7 +221,7 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(Intent.createChooser(intent, "Buka dengan"))
         } catch (e: Exception) {
-            Toasty.success(
+            Toasty.warning(
                 this,
                 getString(R.string.tvInstallBrowser),
                 Toast.LENGTH_SHORT,
