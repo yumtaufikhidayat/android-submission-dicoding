@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.local.FavoriteDao
 import com.yumtaufikhidayat.gitser.data.local.FavoriteEntity
 import com.yumtaufikhidayat.gitser.data.local.UserDatabase
@@ -143,7 +144,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 
             userDao?.addUserToFavorite(user)
         }
-        _snackBarText.value = "Ditambahkan ke favorit"
+        _snackBarText.value = getApplication<Application?>().resources.getString(R.string.tvAddedToFavorite)
     }
 
     suspend fun checkUserFavorite(id: Int) = userDao?.checkUserFavorite(id)
@@ -152,7 +153,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
         CoroutineScope(Dispatchers.IO).launch {
             userDao?.removeUserFromFavorite(id)
         }
-        _snackBarText.value = "Dihapus dari favorit"
+        _snackBarText.value = getApplication<Application?>().resources.getString(R.string.tvRemovedFromFavorite)
     }
 
     companion object {
