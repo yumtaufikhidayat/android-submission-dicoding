@@ -29,4 +29,6 @@
     <string name="tvClickAgainToExit">Klik sekali lagi untuk keluar</string>
     <string name="tvVisitAndShare">Kunjungi &amp; bagikan profil pengguna ini</string>
     <string name="tvPleaseFillForm">Silakan mengisi kolom pencarian terlebih dulu</string>
+    <string name="tvAddedToFavorite">Ditambahkan ke favorit</string>
+    <string name="tvRemovedFromFavorite">Dihapus dari favorit</string>
 </resources>
