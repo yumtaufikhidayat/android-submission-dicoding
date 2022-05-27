@@ -113,7 +113,9 @@ class DetailActivity : AppCompatActivity() {
             }
 
             snackBarText.observe(this@DetailActivity) {
-                showSnackBar(it)
+                it.getContentIfNotHandled()?.let { snackBarText ->
+                    showSnackBar(snackBarText)
+                }
             }
         }
     }

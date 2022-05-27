@@ -13,6 +13,7 @@ import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
 import com.yumtaufikhidayat.gitser.data.response.detail.RepositoryResponse
 import com.yumtaufikhidayat.gitser.data.response.search.Search
 import com.yumtaufikhidayat.gitser.network.ApiConfig
+import com.yumtaufikhidayat.gitser.utils.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,8 +40,8 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _snackBarText = MutableLiveData<String>()
-    val snackBarText: LiveData<String> = _snackBarText
+    private val _snackBarText = MutableLiveData<Event<String>>()
+    val snackBarText: LiveData<Event<String>> = _snackBarText
 
     private var userDao: FavoriteDao?
     private var userDb: UserDatabase? = UserDatabase.getDatabase(application)
@@ -144,7 +145,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 
             userDao?.addUserToFavorite(user)
         }
-        _snackBarText.value = getApplication<Application?>().resources.getString(R.string.tvAddedToFavorite)
+        _snackBarText.value = Event(getApplication<Application?>().resources.getString(R.string.tvAddedToFavorite))
     }
 
     suspend fun checkUserFavorite(id: Int) = userDao?.checkUserFavorite(id)
@@ -153,7 +154,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
         CoroutineScope(Dispatchers.IO).launch {
             userDao?.removeUserFromFavorite(id)
         }
-        _snackBarText.value = getApplication<Application?>().resources.getString(R.string.tvRemovedFromFavorite)
+        _snackBarText.value = Event(getApplication<Application?>().resources.getString(R.string.tvRemovedFromFavorite))
     }
 
     companion object {
