@@ -25,6 +25,7 @@ import com.yumtaufikhidayat.gitser.databinding.ActivityDetailBinding
 import com.yumtaufikhidayat.gitser.ui.adapter.PagerAdapter
 import com.yumtaufikhidayat.gitser.utils.Utils.loadImage
 import com.yumtaufikhidayat.gitser.utils.Utils.makeLinks
+import es.dmoral.toasty.Toasty
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -144,10 +145,11 @@ class DetailActivity : AppCompatActivity() {
                             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
                             startActivity(Intent.createChooser(intent, "Buka dengan"))
                         } catch (e: java.lang.Exception) {
-                            Toast.makeText(
+                            Toasty.success(
                                 this@DetailActivity,
                                 getString(R.string.tvInstallBrowser),
-                                Toast.LENGTH_SHORT
+                                Toast.LENGTH_SHORT,
+                                true
                             ).show()
                         }
                     }))
@@ -219,10 +221,11 @@ class DetailActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
             startActivity(Intent.createChooser(intent, "Buka dengan"))
         } catch (e: Exception) {
-            Toast.makeText(
+            Toasty.success(
                 this,
                 getString(R.string.tvInstallBrowser),
-                Toast.LENGTH_SHORT
+                Toast.LENGTH_SHORT,
+                true
             ).show()
         }
     }

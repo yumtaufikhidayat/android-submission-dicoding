@@ -21,6 +21,7 @@ import com.yumtaufikhidayat.gitser.settings.SettingPreferences
 import com.yumtaufikhidayat.gitser.ui.activity.SettingsActivity.Companion.dataStore
 import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
 import com.yumtaufikhidayat.gitser.utils.ViewModelFactory
+import es.dmoral.toasty.Toasty
 
 class MainActivity : AppCompatActivity() {
 
@@ -111,7 +112,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         doubleBackToExitPressedOnce = true
-        Toast.makeText(this, getString(R.string.tvClickAgainToExit), Toast.LENGTH_SHORT).show()
+        Toasty.success(this, getString(R.string.tvClickAgainToExit), Toast.LENGTH_SHORT).show()
 
         Handler(Looper.getMainLooper())
             .postDelayed({

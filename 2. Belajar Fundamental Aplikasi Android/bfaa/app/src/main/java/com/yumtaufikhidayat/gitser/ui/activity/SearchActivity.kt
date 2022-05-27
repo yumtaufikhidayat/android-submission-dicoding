@@ -15,6 +15,7 @@ import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
 import com.yumtaufikhidayat.gitser.databinding.ActivitySearchBinding
 import com.yumtaufikhidayat.gitser.ui.adapter.SearchAdapter
+import es.dmoral.toasty.Toasty
 
 class SearchActivity : AppCompatActivity() {
 
@@ -78,7 +79,7 @@ class SearchActivity : AppCompatActivity() {
                         }
 
                         query.isEmpty() -> {
-                            Toast.makeText(this@SearchActivity, getString(R.string.tvPleaseFillForm), Toast.LENGTH_SHORT).show()
+                            Toasty.warning(this@SearchActivity, getString(R.string.tvPleaseFillForm), Toast.LENGTH_SHORT).show()
                             clearFocus()
                         }
                     }
