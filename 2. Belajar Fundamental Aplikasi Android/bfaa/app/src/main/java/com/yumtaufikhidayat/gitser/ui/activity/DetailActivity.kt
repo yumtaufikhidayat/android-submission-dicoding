@@ -2,6 +2,7 @@ package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +14,9 @@ import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
+import com.kishandonga.csbx.CustomSnackbar
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.response.detail.DetailResponse
 import com.yumtaufikhidayat.gitser.data.response.search.Search
@@ -104,8 +107,14 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        detailViewModel.isLoading.observe(this) {
-            showLoading(it)
+        detailViewModel.apply {
+            isLoading.observe(this@DetailActivity) {
+                showLoading(it)
+            }
+
+            snackBarText.observe(this@DetailActivity) {
+                showSnackBar(it)
+            }
         }
     }
 
@@ -171,18 +180,27 @@ class DetailActivity : AppCompatActivity() {
                     dataParcel.avatarUrl,
                     dataParcel.type
                 )
-                showToast("Ditambahkan ke favorit")
             } else {
                 detailViewModel.removeFromFavorite(dataParcel.id)
-                showToast("Dihapus dari favorit")
             }
 
             toggleFavoriteDetailSearch.isChecked = isChecked
         }
     }
 
-    private fun showToast(text: String) {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
+    private fun showSnackBar(text: String) {
+        when (this@DetailActivity.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES, Configuration.UI_MODE_NIGHT_NO -> {
+                CustomSnackbar(this).show {
+                    textColor(ContextCompat.getColor(this@DetailActivity, R.color.white))
+                    textTypeface(Typeface.DEFAULT_BOLD)
+                    backgroundColor(ContextCompat.getColor(this@DetailActivity, R.color.purple_500))
+                    cornerRadius(18F)
+                    duration(Snackbar.LENGTH_LONG)
+                    message(text)
+                }
+            }
+        }
     }
 
     private fun setPagerData() = with(binding) {

@@ -38,6 +38,9 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
+    private val _snackBarText = MutableLiveData<String>()
+    val snackBarText: LiveData<String> = _snackBarText
+
     private var userDao: FavoriteDao?
     private var userDb: UserDatabase? = UserDatabase.getDatabase(application)
 
@@ -140,6 +143,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
 
             userDao?.addUserToFavorite(user)
         }
+        _snackBarText.value = "Ditambahkan ke favorit"
     }
 
     suspend fun checkUserFavorite(id: Int) = userDao?.checkUserFavorite(id)
@@ -148,6 +152,7 @@ class DetailViewModel(application: Application): AndroidViewModel(application) {
         CoroutineScope(Dispatchers.IO).launch {
             userDao?.removeUserFromFavorite(id)
         }
+        _snackBarText.value = "Dihapus dari favorit"
     }
 
     companion object {
