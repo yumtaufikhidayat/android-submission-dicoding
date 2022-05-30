@@ -1,10 +1,12 @@
 package com.yumtaufikhidayat.gitser.ui.activity
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.local.FavoriteEntity
@@ -25,6 +27,7 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initActionBar()
+        checkThemes()
         initAdapter()
         initObserver()
     }
@@ -44,6 +47,24 @@ class FavoriteActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@FavoriteActivity)
                 adapter = searchAdapter
             }
+        }
+    }
+
+    private fun checkThemes() = with(binding){
+        when (this@FavoriteActivity.resources?.configuration?.uiMode?.and(Configuration.UI_MODE_NIGHT_MASK)) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                layoutNoFavorite.tvNoDataTitle.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.white))
+                layoutNoFavorite.tvNoDataDesc.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.white))
+            }
+
+            Configuration.UI_MODE_NIGHT_NO -> {
+                layoutNoFavorite.tvNoDataTitle.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
+                layoutNoFavorite.tvNoDataDesc.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
+            }
+
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                layoutNoFavorite.tvNoDataTitle.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
+                layoutNoFavorite.tvNoDataDesc.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))}
         }
     }
 
