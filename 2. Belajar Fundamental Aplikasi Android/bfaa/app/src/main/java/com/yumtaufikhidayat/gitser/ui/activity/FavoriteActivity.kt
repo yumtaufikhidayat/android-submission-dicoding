@@ -25,7 +25,7 @@ class FavoriteActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initActionBar()
-        setAdapter()
+        initAdapter()
         initObserver()
     }
 
@@ -36,7 +36,7 @@ class FavoriteActivity : AppCompatActivity() {
         }
     }
 
-    private fun setAdapter() {
+    private fun initAdapter() {
         searchAdapter = SearchAdapter()
         binding.apply {
             with(rvFavorite) {
