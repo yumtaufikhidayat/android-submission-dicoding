@@ -20,7 +20,4 @@ interface FavoriteDao {
 
     @Query("DELETE FROM favorite_user WHERE favorite_user.id = :id")
     suspend fun removeUserFromFavorite(id: Int): Int
-
-    @Query("SELECT * FROM favorite_user")
-    fun findAllUsers(): Cursor
 }
