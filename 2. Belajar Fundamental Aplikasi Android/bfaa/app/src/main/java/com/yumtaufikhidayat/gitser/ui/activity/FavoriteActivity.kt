@@ -101,6 +101,7 @@ class FavoriteActivity : AppCompatActivity() {
         if (isShow) {
             viewNoFavoriteVisibility.visibility = View.VISIBLE
             layoutNoFavorite.tvNoDataDesc.text = getString(R.string.tvNoFavorite)
+            rvFavorite.visibility = View.GONE
         } else {
             viewNoFavoriteVisibility.visibility = View.GONE
         }
