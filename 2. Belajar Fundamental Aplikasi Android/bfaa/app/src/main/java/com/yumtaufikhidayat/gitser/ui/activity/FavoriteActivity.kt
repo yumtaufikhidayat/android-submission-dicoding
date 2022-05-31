@@ -34,7 +34,7 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun initActionBar() {
         supportActionBar?.apply {
-            title = "Favorit"
+            title = getString(R.string.tvFavorite)
             setDisplayHomeAsUpEnabled(true)
         }
     }
