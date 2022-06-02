@@ -61,10 +61,6 @@ class FavoriteActivity : AppCompatActivity() {
                 layoutNoFavorite.tvNoDataTitle.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
                 layoutNoFavorite.tvNoDataDesc.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
             }
-
-            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
-                layoutNoFavorite.tvNoDataTitle.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))
-                layoutNoFavorite.tvNoDataDesc.setTextColor(ContextCompat.getColor(this@FavoriteActivity, R.color.black))}
         }
     }
 
