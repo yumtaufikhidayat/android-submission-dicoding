@@ -65,14 +65,16 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-        favoriteViewModel.getFavoriteUser()?.observe(this) {
-            if (it != null) {
-                if (it.isNotEmpty()) {
-                    val list = mapList(it)
-                    searchAdapter.submitList(list)
-                    showNoData(false)
-                } else {
-                    showNoData(true)
+        favoriteViewModel.apply {
+            getFavoriteUser()?.observe(this@FavoriteActivity) {
+                if (it != null) {
+                    if (it.isNotEmpty()) {
+                        val list = mapList(it)
+                        searchAdapter.submitList(list)
+                        showNoData(false)
+                    } else {
+                        showNoData(true)
+                    }
                 }
             }
         }
