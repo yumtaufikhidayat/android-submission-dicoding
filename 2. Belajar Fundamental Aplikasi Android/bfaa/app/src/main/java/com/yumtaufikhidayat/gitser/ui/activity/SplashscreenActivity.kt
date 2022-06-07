@@ -7,13 +7,12 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.postDelayed
 import com.yumtaufikhidayat.gitser.databinding.ActivitySplashscreenBinding
 
 class SplashscreenActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySplashscreenBinding
-    private lateinit var handler: Handler
-    private val delayMillis = 1000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,13 +24,13 @@ class SplashscreenActivity : AppCompatActivity() {
     }
 
     private fun setSplashscreen() {
-
-        handler = Handler(Looper.getMainLooper())
-        handler.postDelayed({
+        val delayMillis = 1000L
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed(delayMillis) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
-        }, delayMillis)
+        }
     }
 
     private fun setAppVersion() {
