@@ -7,6 +7,7 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.local.FavoriteEntity
@@ -29,6 +30,7 @@ class FavoriteActivity : AppCompatActivity() {
         initActionBar()
         checkThemes()
         initAdapter()
+        checkOrientation()
         initObserver()
     }
 
@@ -47,6 +49,14 @@ class FavoriteActivity : AppCompatActivity() {
                 layoutManager = LinearLayoutManager(this@FavoriteActivity)
                 adapter = searchAdapter
             }
+        }
+    }
+
+    private fun checkOrientation() = with(binding) {
+        rvFavorite.layoutManager = if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            GridLayoutManager(this@FavoriteActivity, 2)
+        } else {
+            LinearLayoutManager(this@FavoriteActivity)
         }
     }
 
