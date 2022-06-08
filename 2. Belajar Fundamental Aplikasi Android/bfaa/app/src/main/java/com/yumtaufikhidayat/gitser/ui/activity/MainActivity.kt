@@ -1,6 +1,7 @@
 package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -12,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         initTheme()
         initView()
+        checkOrientation()
         initObserver()
     }
 
@@ -63,6 +66,14 @@ class MainActivity : AppCompatActivity() {
                 adapter = searchAdapter
             }
         }
+    }
+
+    private fun checkOrientation() = with(binding) {
+        rvMain.layoutManager = if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                GridLayoutManager(this@MainActivity, 2)
+            } else {
+                LinearLayoutManager(this@MainActivity)
+            }
     }
 
     private fun initObserver() {

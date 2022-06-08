@@ -2,6 +2,7 @@ package com.yumtaufikhidayat.gitser.ui.activity
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yumtaufikhidayat.gitser.R
 import com.yumtaufikhidayat.gitser.data.viewmodel.main.MainViewModel
@@ -30,6 +32,7 @@ class SearchActivity : AppCompatActivity() {
 
         initActionBar()
         initView()
+        checkOrientation()
         initObserver()
     }
 
@@ -48,6 +51,14 @@ class SearchActivity : AppCompatActivity() {
                 setHasFixedSize(true)
                 adapter = searchAdapter
             }
+        }
+    }
+
+    private fun checkOrientation() = with(binding) {
+        rvSearchUsers.layoutManager = if (applicationContext.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            GridLayoutManager(this@SearchActivity, 2)
+        } else {
+            LinearLayoutManager(this@SearchActivity)
         }
     }
 
