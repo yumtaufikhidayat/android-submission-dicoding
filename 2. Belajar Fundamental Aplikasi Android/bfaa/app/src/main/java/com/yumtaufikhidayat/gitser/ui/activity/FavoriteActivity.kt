@@ -76,10 +76,10 @@ class FavoriteActivity : AppCompatActivity() {
 
     private fun initObserver() {
         favoriteViewModel.apply {
-            getFavoriteUser()?.observe(this@FavoriteActivity) {
-                if (it != null) {
-                    if (it.isNotEmpty()) {
-                        val list = mapList(it)
+            getFavoriteUser()?.observe(this@FavoriteActivity) { listFavorite ->
+                if (listFavorite != null) {
+                    if (listFavorite.isNotEmpty()) {
+                        val list = mapList(listFavorite)
                         searchAdapter.submitList(list)
                         showNoData(false)
                     } else {
