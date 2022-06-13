@@ -33,7 +33,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun initActionBar() {
         supportActionBar?.apply {
-            title = "Pengaturan"
+            title = getString(R.string.tvSettings)
             setDisplayHomeAsUpEnabled(true)
             elevation = 0F
         }
