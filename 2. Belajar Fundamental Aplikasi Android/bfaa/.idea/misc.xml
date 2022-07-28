@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_rounded_corners.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_splashscreen.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splashscreen.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_list_repository.xml" value="0.25462962962962965" />
+        <entry key="app/src/main/res/layout/shimmer_item_user.xml" value="0.1" />
       </map>
     </option>
   </component>
