@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../../../layout/custom_preview.xml" value="0.16576086956521738" />
+        <entry key="app/src/main/res/drawable/bg_button_disabled.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_button_enabled.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_edit_text.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_edit_text_upload.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/bg_rounded_button.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_rounded_corners.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_rounded_purple.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/bg_search.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/bg_splash_screen.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_add_story.xml" value="0.1725" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back.xml" value="0.173" />
+        <entry key="app/src/main/res/drawable/ic_baseline_email.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_lock.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.177" />
+        <entry key="app/src/main/res/drawable/ic_clear.xml" value="0.1725" />
+        <entry key="app/src/main/res/drawable/ic_clear_grey.xml" value="0.1725" />
+        <entry key="app/src/main/res/drawable/ic_description.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_email.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ic_favorite.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_favorite_outline.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_image.xml" value="0.1545" />
+        <entry key="app/src/main/res/drawable/ic_outline_clear.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_outline_person.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ic_outline_person_pin.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_password.xml" value="0.2325" />
+        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/ic_search.xml" value="0.2325" />
+        <entry key="app/src/main/res/drawable/ic_search_alt.xml" value="0.1725" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.17039473684210527" />
+        <entry key="app/src/main/res/layout/activity_favorite_story.xml" value="0.1326388888888889" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1253085271948684" />
+        <entry key="app/src/main/res/layout/activity_maps.xml" value="0.16091205211726384" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1109100341796875" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.16872964169381108" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_upload_story.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.16872964169381108" />
+        <entry key="app/src/main/res/layout/item_list_stories.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_loading.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_error.xml" value="0.1326388888888889" />
+        <entry key="app/src/main/res/layout/layout_info_window.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/shimmer_item_list_stories.xml" value="0.10625" />
+        <entry key="app/src/main/res/menu/menu_detail.xml" value="0.1326388888888889" />
+        <entry key="app/src/main/res/menu/menu_maps.xml" value="0.1" />
+        <entry key="app/src/main/res/xml/file_paths.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
