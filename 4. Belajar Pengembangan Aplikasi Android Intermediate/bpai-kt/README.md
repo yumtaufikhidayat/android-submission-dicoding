@@ -17,6 +17,19 @@ This application is a simple Github user search app using Kotlin. Built using th
 - View Binding
 - Coroutine Flow
 - DataStore
+- Room Persistent Database
 - Retrofit
-- Google Maps
-- Paging3
+- Paging 3
+- Google Maps API
+
+This application has some features:
+- Submission 1
+  - Login, register, and logout -> Using [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) (Like shared preferences but better) to store user data.
+  - Animation -> Using property animation. See [https://developer.android.com/guide/topics/graphics/prop-animation](https://developer.android.com/guide/topics/graphics/prop-animation)
+  - List of story -> Using recyclerview.
+  - Upload image to server -> Using Retrofit with Multipart.
+
+- Submission 2
+  - Infinite scroll -> Using [Paging 3](https://developer.android.com/topic/libraries/architecture/paging/v3-migration)
+  - Show users location -> Using [Google Maps API](https://developers.google.com/maps/documentation/android-sdk)
+  - Favorite user's story -> Using [Room](https://developer.android.com/training/data-storage/room)
