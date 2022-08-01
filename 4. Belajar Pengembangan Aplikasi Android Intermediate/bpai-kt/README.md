@@ -18,10 +18,5 @@ This application is a simple Github user search app using Kotlin. Built using th
 - Coroutine Flow
 - DataStore
 - Retrofit
-
-This application has some features:
-- Submission 1
-  - Login, register, and logout -> Using [DataStore](https://developer.android.com/topic/libraries/architecture/datastore) (Like shared preferences but better) to store user data.
-  - Animation -> Using property animation. See [https://developer.android.com/guide/topics/graphics/prop-animation](https://developer.android.com/guide/topics/graphics/prop-animation)
-  - List of story -> Using recyclerview.
-  - Upload image to server -> Using Retrofit with Multipart.
+- Google Maps
+- Paging3
